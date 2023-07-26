@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "danmaku-leafer": "workspace:^",
+    "leafer-ui": "1.0.0-beta.6",
     "next": "^13.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -19,6 +21,6 @@
     "@types/react-dom": "^18.0.7",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*",
-    "typescript": "^4.5.3"
+    "typescript": "^5.1.6"
   }
 }

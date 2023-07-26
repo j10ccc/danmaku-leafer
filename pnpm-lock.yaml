@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@turbo/gen':
         specifier: ^1.9.7
-        version: 1.9.7(@types/node@17.0.45)(typescript@4.9.5)
+        version: 1.9.7(@types/node@17.0.45)(typescript@5.1.6)
       eslint:
         specifier: ^8.45.0
         version: 8.45.0
@@ -26,6 +26,12 @@ importers:
 
   apps/web:
     dependencies:
+      danmaku-leafer:
+        specifier: workspace:^
+        version: link:../../packages/danmaku-leafer
+      leafer-ui:
+        specifier: 1.0.0-beta.6
+        version: 1.0.0-beta.6
       next:
         specifier: ^13.4.1
         version: 13.4.1(react-dom@18.2.0)(react@18.2.0)
@@ -52,8 +58,33 @@ importers:
         specifier: workspace:*
         version: link:../../packages/tsconfig
       typescript:
-        specifier: ^4.5.3
-        version: 4.9.5
+        specifier: ^5.1.6
+        version: 5.1.6
+
+  packages/danmaku-leafer:
+    dependencies:
+      leafer-ui:
+        specifier: 1.0.0-beta.6
+        version: 1.0.0-beta.6
+      nanoid:
+        specifier: ^4.0.2
+        version: 4.0.2
+    devDependencies:
+      '@rollup/plugin-typescript':
+        specifier: ^11.1.2
+        version: 11.1.2(rollup@3.26.3)(typescript@5.1.6)
+      eslint-config-custom:
+        specifier: workspace:*
+        version: link:../eslint-config-custom
+      rollup:
+        specifier: ^3.26.3
+        version: 3.26.3
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: ^5.1.6
+        version: 5.1.6
 
   packages/eslint-config-custom:
     dependencies:
@@ -62,7 +93,7 @@ importers:
         version: 0.0.1
       eslint-config-next:
         specifier: ^13.4.1
-        version: 13.4.1(eslint@8.45.0)(typescript@4.9.5)
+        version: 13.4.1(eslint@8.45.0)(typescript@5.1.6)
       eslint-config-prettier:
         specifier: ^8.3.0
         version: 8.8.0(eslint@8.45.0)
@@ -175,6 +206,354 @@ packages:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
+
+  /@leafer-ui/app@1.0.0-beta.6:
+    resolution: {integrity: sha512-JHjEYNiF2YRkWTCs4BaxLJDSMpVJ43vBmxhVj7FQ75pu5sQNgAzRuZRj/vs/VJFvyn7Q2Yaeni06L2JpXsNdUg==}
+    dependencies:
+      '@leafer-ui/data': 1.0.0-beta.6
+      '@leafer-ui/display': 1.0.0-beta.6
+      '@leafer-ui/type': 1.0.0-beta.6
+      '@leafer/core': 1.0.0-beta.6
+    dev: false
+
+  /@leafer-ui/bounds@1.0.0-beta.6:
+    resolution: {integrity: sha512-/pRpluPyynks4q7yAXucSFOkILb7p7lepfcEjkoPa9Z68HPrIcgvLeyjDNQZBNw5YuraMqT6AOf8ZmKNPAQnPQ==}
+    dependencies:
+      '@leafer/core': 1.0.0-beta.6
+    dev: false
+
+  /@leafer-ui/color@1.0.0-beta.6:
+    resolution: {integrity: sha512-z1UYSvVRraHlnehO+fcuVg7F4z8p5X6lXC1+jevFLnfAj2p/SziD9G6KyyH4BsKaJTft3qAqpkSwusOIs6nwtA==}
+    dev: false
+
+  /@leafer-ui/core@1.0.0-beta.6:
+    resolution: {integrity: sha512-/QBA68e+/Zlty6V6y4yjgT+mXoXFBIC702HSee66iLiWyhocGyQ29GP1zbXOnbhtRqIb1dkVkemJCkXqbfsHgw==}
+    dependencies:
+      '@leafer-ui/app': 1.0.0-beta.6
+      '@leafer-ui/decorator': 1.0.0-beta.6
+      '@leafer-ui/display': 1.0.0-beta.6
+      '@leafer-ui/display-module': 1.0.0-beta.6
+      '@leafer-ui/external': 1.0.0-beta.6
+      '@leafer-ui/type': 1.0.0-beta.6
+    dev: false
+
+  /@leafer-ui/data@1.0.0-beta.6:
+    resolution: {integrity: sha512-o3UQgblN6wbKdXB4mIPPlwDrEo5fT3XBpKGBdmA9hd77P1ysKSeUHoNiCnbucWBXNladm91viXuRkb/DRLoGng==}
+    dependencies:
+      '@leafer/core': 1.0.0-beta.6
+    dev: false
+
+  /@leafer-ui/decorator@1.0.0-beta.6:
+    resolution: {integrity: sha512-TrVSOOSRuF9JPRkPtk/TESfa7JIrOiMj82LqkMG86RKMhftbD1p72vhJwpwt2TV7EuyQnfzAdksKxRQvRhLCOA==}
+    dependencies:
+      '@leafer/core': 1.0.0-beta.6
+    dev: false
+
+  /@leafer-ui/display-module@1.0.0-beta.6:
+    resolution: {integrity: sha512-kaWCkTIrVoh4HjvMnSfL9twYr2DJyGnvFLbGgPVc7f2L5jlwa1S1pXUv/3qKAlwwk0Ij7LR6csIGuJlN760tlw==}
+    dependencies:
+      '@leafer-ui/bounds': 1.0.0-beta.6
+      '@leafer-ui/hit': 1.0.0-beta.6
+      '@leafer-ui/render': 1.0.0-beta.6
+    dev: false
+
+  /@leafer-ui/display@1.0.0-beta.6:
+    resolution: {integrity: sha512-3yHmevTxnCYVDFLVgpWdrqQgsLf5CHi2DJ/hZbiAxXggo6LDVf6YBE7Pdw626/+lUtbszrfbDm1GPzrECs0L2w==}
+    dependencies:
+      '@leafer-ui/data': 1.0.0-beta.6
+      '@leafer-ui/decorator': 1.0.0-beta.6
+      '@leafer-ui/display-module': 1.0.0-beta.6
+      '@leafer-ui/text': 1.0.0-beta.6
+      '@leafer/core': 1.0.0-beta.6
+    dev: false
+
+  /@leafer-ui/effect@1.0.0-beta.6:
+    resolution: {integrity: sha512-LdQcXc03WPHM9Z9Sk4/IYum6jz9dbCykpY9Q6I+05phbSxEj0PgGBAqwx+yXTSoSgF/0clLV6miwOnnZwbpsnw==}
+    dev: false
+
+  /@leafer-ui/external@1.0.0-beta.6:
+    resolution: {integrity: sha512-7tnT+MvjCjWxIp7ff9+MGInFocvmrOjNS0mwgWmvUfrwR1hRqzH8zE4c2hR4ZJZLE2YuptG96Wei08IrHhMI0g==}
+    dependencies:
+      '@leafer-ui/effect': 1.0.0-beta.6
+      '@leafer-ui/paint': 1.0.0-beta.6
+    dev: false
+
+  /@leafer-ui/hit@1.0.0-beta.6:
+    resolution: {integrity: sha512-/5lR5GIYOlPGd5iRFPKuNs7bhZVQ32Nl+Wb9FNHvshxeUbi8ZNJv6xOc7RcXnM6xpF8xX5BSgfyYQPbmIOY6AA==}
+    dev: false
+
+  /@leafer-ui/interface@1.0.0-beta.6:
+    resolution: {integrity: sha512-DgD6N2/8ngExLq6cLWBOOW0Ty4tPw0w1jAcl29c1BoHtUb2WyjnHGLLCQ3Mex2s3ifjrtPdhm3DoNnVE3u57Mg==}
+    dependencies:
+      '@leafer/interface': 1.0.0-beta.6
+    dev: false
+
+  /@leafer-ui/paint@1.0.0-beta.6:
+    resolution: {integrity: sha512-1MGRYVxd4BZowpqdHJsScgkA+T/ZU1/i6yWlfSvF3DvxBjIXJ8OAzj79Z/A8P6diBB2FYRaCQySddyd04v1now==}
+    dependencies:
+      '@leafer-ui/color': 1.0.0-beta.6
+      '@leafer/core': 1.0.0-beta.6
+    dev: false
+
+  /@leafer-ui/render@1.0.0-beta.6:
+    resolution: {integrity: sha512-tlDXBql6ZY5MH48xSdVEdoYXlWx0vLBZcltpplurr+Th1KJLxZ77O8D77utRj6+a4PxlCP5Flcpw95myqAbgwQ==}
+    dependencies:
+      '@leafer-ui/external': 1.0.0-beta.6
+    dev: false
+
+  /@leafer-ui/text@1.0.0-beta.6:
+    resolution: {integrity: sha512-NwcR18YCHRzGkcUk7laQ2ULU3mSBuwbjlJ9E8bvYlt1YzHetVRVqL5w/cu8T1/1B/P7UzeH1K007jjhVw6EUvw==}
+    dependencies:
+      '@leafer-ui/core': 1.0.0-beta.6
+    dev: false
+
+  /@leafer-ui/type@1.0.0-beta.6:
+    resolution: {integrity: sha512-B+TWvlphPcvrGLxuWCea30OXxdxBaHSJhUnPCosuvNE5ICaQzOISiUeUfOUwHUX7xdzwNeAEmTmLakjNYIXNvg==}
+    dependencies:
+      '@leafer-ui/core': 1.0.0-beta.6
+    dev: false
+
+  /@leafer-ui/web@1.0.0-beta.6:
+    resolution: {integrity: sha512-iAnOt3jcYvRJErx6wwvQR0VIdOvEylhl9KqEJM1OruoqMW/SbK157gNMbO/Kw2o0yiT0vPryrzSM88DS1ntu6w==}
+    dependencies:
+      '@leafer-ui/core': 1.0.0-beta.6
+      '@leafer/web': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/canvas-web@1.0.0-beta.6:
+    resolution: {integrity: sha512-Dy+k3XzabsjxLQesTFdBWXd9fN0xNSgVHI5ErKrXCWUgiUD+by5keHhmlmtbZNJRqW3gayRDDh4j0vwidxwuYw==}
+    dependencies:
+      '@leafer/canvas': 1.0.0-beta.6
+      '@leafer/data': 1.0.0-beta.6
+      '@leafer/debug': 1.0.0-beta.6
+      '@leafer/event': 1.0.0-beta.6
+      '@leafer/math': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/canvas@1.0.0-beta.6:
+    resolution: {integrity: sha512-UsPTeUBOh5Vr1NBi0NudpGArnKhk8NpDfD/NrATmVWecEo+rbFiwwuWWWA/JbMYn6RiPumWoINmPaoOchQ8zug==}
+    dependencies:
+      '@leafer/data': 1.0.0-beta.6
+      '@leafer/file': 1.0.0-beta.6
+      '@leafer/list': 1.0.0-beta.6
+      '@leafer/math': 1.0.0-beta.6
+      '@leafer/platform': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/core@1.0.0-beta.6:
+    resolution: {integrity: sha512-2B/YxrAU+7q9QoXRI/J+5KNuxRdqGUqbfLNFsp4ADB4vC78Kw0okJVzbYI7bPJZXjGNhUiUeIqMJKmnrdXxvUA==}
+    dependencies:
+      '@leafer/canvas': 1.0.0-beta.6
+      '@leafer/data': 1.0.0-beta.6
+      '@leafer/debug': 1.0.0-beta.6
+      '@leafer/decorator': 1.0.0-beta.6
+      '@leafer/display': 1.0.0-beta.6
+      '@leafer/display-module': 1.0.0-beta.6
+      '@leafer/event': 1.0.0-beta.6
+      '@leafer/event-ui': 1.0.0-beta.6
+      '@leafer/file': 1.0.0-beta.6
+      '@leafer/helper': 1.0.0-beta.6
+      '@leafer/image': 1.0.0-beta.6
+      '@leafer/list': 1.0.0-beta.6
+      '@leafer/math': 1.0.0-beta.6
+      '@leafer/path': 1.0.0-beta.6
+      '@leafer/platform': 1.0.0-beta.6
+      '@leafer/plugin': 1.0.0-beta.6
+      '@leafer/task': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/data@1.0.0-beta.6:
+    resolution: {integrity: sha512-4PrLrXAfqHMAiSrqGCWS4L5QxHlrCHpcJZR/Zz2iUF9K/cNLdLh5APC8I7oqcvNASBSSMNsVLWghWzfmsIKSfw==}
+    dev: false
+
+  /@leafer/debug@1.0.0-beta.6:
+    resolution: {integrity: sha512-Cm/m+43XFeE6zLg8gdn6/oxI02zdeCY0s9XJ4o3PgQJC1cvQSCedTsPA8sbGC4fvz0484Z+wZAGm3cxpE6z9gw==}
+    dependencies:
+      '@leafer/math': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/decorator@1.0.0-beta.6:
+    resolution: {integrity: sha512-HoDgdWSAiqRp7JuatBNmOeqH4LHl86i5wLF3mdJW8K7i+FXqo5SfTYHj0wZLtlkKSLdIdDGd4/3OJWxFs1+vBA==}
+    dependencies:
+      '@leafer/debug': 1.0.0-beta.6
+      '@leafer/platform': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/display-module@1.0.0-beta.6:
+    resolution: {integrity: sha512-X4NPPVbPnE4tPey3ujBI5o2EzMMAsSwY5FSu8A0tr4MyZyWKC/mCnFEFHAf986ZPkCchWbbDkMv2jtwyzxv29A==}
+    dependencies:
+      '@leafer/event': 1.0.0-beta.6
+      '@leafer/math': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/display@1.0.0-beta.6:
+    resolution: {integrity: sha512-N883eBJhXdWvgluGzZ13T+qb4wrENHWbExae8N901i4dr0CDctSC5xnpbxBQaKMH4hkJoKAGsfQTJcOJhlLVDQ==}
+    dependencies:
+      '@leafer/data': 1.0.0-beta.6
+      '@leafer/decorator': 1.0.0-beta.6
+      '@leafer/display-module': 1.0.0-beta.6
+      '@leafer/event': 1.0.0-beta.6
+      '@leafer/helper': 1.0.0-beta.6
+      '@leafer/layout': 1.0.0-beta.6
+      '@leafer/math': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/event-ui@1.0.0-beta.6:
+    resolution: {integrity: sha512-cDch4D7a228K0GDZcHgVgR7YYWC+0iakU0aLNSFZMucnhhTgsLOzARUaOP1XZc3p47vLk6fZwtbXWPho26H7yA==}
+    dependencies:
+      '@leafer/decorator': 1.0.0-beta.6
+      '@leafer/event': 1.0.0-beta.6
+      '@leafer/list': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/event@1.0.0-beta.6:
+    resolution: {integrity: sha512-dxNLjhV4yYAZFfZCSYV7HWriCNcON2S/c8ReHLFHIGubMed5o3PFQi+3inbZGeA3LG4byJk5FdGahsMmlm8hng==}
+    dependencies:
+      '@leafer/decorator': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/file@1.0.0-beta.6:
+    resolution: {integrity: sha512-kntLNzzkLBrimk90XZyVWXHo+uJvtKvqA3fEmwcaIKZQ7F55WqNFqWh5mcZlRU3ArL4Z5jPyTsscX1QdyTDUMA==}
+    dependencies:
+      '@leafer/debug': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/helper@1.0.0-beta.6:
+    resolution: {integrity: sha512-4CWcybpEElD8qA2e6y0VL2iADWCt4N6fyZFTLF9SmEVLJsfZXcnDtSn/AnAcJw1c0/QuTil2flj4Igl27RHjCQ==}
+    dependencies:
+      '@leafer/math': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/image-web@1.0.0-beta.6:
+    resolution: {integrity: sha512-HeH/IYt0eixvGCLxTqZmej/6nVd6g6iC7kuCj1Vk9TjXikomjpFvvmEIFnAsJ1dCp8UOEUgdMqi3zivVcI46Iw==}
+    dev: false
+
+  /@leafer/image@1.0.0-beta.6:
+    resolution: {integrity: sha512-Ee80gQVbSNVwx6OBzzIRVo+Q7sdaEtlpcNOdVoJGxC6MWu17vtYYTDfCwF8r2BRAOoV0OwO4gZ6mSzhwihwc9w==}
+    dev: false
+
+  /@leafer/interaction-web@1.0.0-beta.6:
+    resolution: {integrity: sha512-SQEPRhLv7L00+u0ib3B7A8yhbbBvJ/H8t9ocM4yIYIQiiRPWLRwNxFZEzLRtOBaA7wwN/82FrthtBBdtt9hAow==}
+    dependencies:
+      '@leafer/event-ui': 1.0.0-beta.6
+      '@leafer/interaction': 1.0.0-beta.6
+      '@leafer/math': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/interaction@1.0.0-beta.6:
+    resolution: {integrity: sha512-ZZTc44/XfST5Hy+gJnvsZqkhQb3guEHC1wabA068k6F7X/u+/PCK27VzGWkIi2x0uKur9H60KdNg0Ent/qrdKg==}
+    dependencies:
+      '@leafer/data': 1.0.0-beta.6
+      '@leafer/event': 1.0.0-beta.6
+      '@leafer/event-ui': 1.0.0-beta.6
+      '@leafer/helper': 1.0.0-beta.6
+      '@leafer/list': 1.0.0-beta.6
+      '@leafer/math': 1.0.0-beta.6
+      '@leafer/platform': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/interface@1.0.0-beta.6:
+    resolution: {integrity: sha512-JbT8/Jumh0NE/tqjP62E0YH0GkGt9oRsj5raumU6Fx8Gi5tA/9lHHSaAH7LE2hGbhXN9oGM2y3z2Cp5eocmrGQ==}
+    dev: false
+
+  /@leafer/layout@1.0.0-beta.6:
+    resolution: {integrity: sha512-8raBYvMiO6SROqE7DyXuB/w0i6hnNDmwH5e5sRLmu8H5Q0/Bj42zDFx1XX8mkRb3PFHOpu+fjftCldgbRHTe1Q==}
+    dependencies:
+      '@leafer/math': 1.0.0-beta.6
+      '@leafer/platform': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/layouter@1.0.0-beta.6:
+    resolution: {integrity: sha512-slDhqaTKLF+p2JJXgMGmOe+tqpxEyLc6e7tVoRolYW8KwHb1fU0dK7a/nwBWZQlJhNyZ4/DJIQ9GLFrFqaxeMA==}
+    dependencies:
+      '@leafer/data': 1.0.0-beta.6
+      '@leafer/debug': 1.0.0-beta.6
+      '@leafer/event': 1.0.0-beta.6
+      '@leafer/helper': 1.0.0-beta.6
+      '@leafer/list': 1.0.0-beta.6
+      '@leafer/math': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/list@1.0.0-beta.6:
+    resolution: {integrity: sha512-PJZ7PG4cshSvs8uOt0zEwd3uN/EItmuEKDOB89dxHZDGOXblOMUY1QsHqVd2LUkb3J0oJMwhlqruOKs+oh0pVw==}
+    dev: false
+
+  /@leafer/math@1.0.0-beta.6:
+    resolution: {integrity: sha512-Xa7bWFAd9WsxbXxv1riHw02L4je3HnQ17NYBJfAE75uDG4yAtearJpzN0TzNjWufV9bB2Fl54zWTXNaw8vzgbg==}
+    dev: false
+
+  /@leafer/partner@1.0.0-beta.6:
+    resolution: {integrity: sha512-M+wdZ83B8lnQBwhJYVTivYaDAH4heHwtaj9PbrnKLdXfNBPhCOd3ga5mkPtyVB2+zPEyizoPAUixjumZ9/k6Kw==}
+    dependencies:
+      '@leafer/layouter': 1.0.0-beta.6
+      '@leafer/platform': 1.0.0-beta.6
+      '@leafer/renderer': 1.0.0-beta.6
+      '@leafer/selector': 1.0.0-beta.6
+      '@leafer/watcher': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/path@1.0.0-beta.6:
+    resolution: {integrity: sha512-E8BuUH9CDSLTppJV0p/yYkolyXT7RU4Q0Iu1tL3kIlY8ROt9DXIDmmCD4Z/K4D8Riu3LSzZ0/v4PiuODCOuNXA==}
+    dependencies:
+      '@leafer/debug': 1.0.0-beta.6
+      '@leafer/math': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/platform@1.0.0-beta.6:
+    resolution: {integrity: sha512-C/5/mCgRwjMntE2uf3NxsRyluSXYGcXymUAaEjQjGteNRqB7LGSeVYAkWqZnfK3V0J3c4jGQPx9Ee4fMM/6UuA==}
+    dependencies:
+      '@leafer/debug': 1.0.0-beta.6
+      '@leafer/layouter': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/plugin@1.0.0-beta.6:
+    resolution: {integrity: sha512-Wwb92wMVWHTxtphDF7n0WEOf5m/XSQ0WxQuw3IP6A9mOJLpOjIdF8u7hu3Y2dlITfeWyNyRZ4NA11Z4F2qmniA==}
+    dependencies:
+      '@leafer/debug': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/renderer@1.0.0-beta.6:
+    resolution: {integrity: sha512-N6g/+y7EkP/4Hg3cqzDcTpmMt4dzExNEIn79BWehn5WiJw28BiJ84DBuAzKGkhLAQeHgMN3/5TwgVx0F3OeBLg==}
+    dependencies:
+      '@leafer/data': 1.0.0-beta.6
+      '@leafer/debug': 1.0.0-beta.6
+      '@leafer/event': 1.0.0-beta.6
+      '@leafer/math': 1.0.0-beta.6
+      '@leafer/platform': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/selector@1.0.0-beta.6:
+    resolution: {integrity: sha512-5/VunNQV4aZT7s3+U8PtntC4VGK3OGKgHaCMJ1vyT7MWtx0RRWC7EU083eSlssnSR97Kiop6B+AIRugYf91r9Q==}
+    dependencies:
+      '@leafer/event': 1.0.0-beta.6
+      '@leafer/list': 1.0.0-beta.6
+      '@leafer/math': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/task@1.0.0-beta.6:
+    resolution: {integrity: sha512-bMZMQ3y3bsCEkr0Q5RfOJhonWzkYGo+gOjSgDNFTHsIWrrr21oPRt8luRgIKggIYna4/niI1VEdPvu87oIt7YQ==}
+    dependencies:
+      '@leafer/debug': 1.0.0-beta.6
+      '@leafer/math': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/watcher@1.0.0-beta.6:
+    resolution: {integrity: sha512-x6iqgyPqng3P287xAOC/0TNA/KDjQ1QXEs9J0+aDHp/iGijeLPttcwmVn9a2xQz0KsBchU+QOTmuyVYuqatD4A==}
+    dependencies:
+      '@leafer/data': 1.0.0-beta.6
+      '@leafer/event': 1.0.0-beta.6
+      '@leafer/list': 1.0.0-beta.6
+    dev: false
+
+  /@leafer/web@1.0.0-beta.6:
+    resolution: {integrity: sha512-VrcJRZFl7jnFOcl3unyRWb8H1yaL/HDq+fFO19750Ur8cdC1QA4eGe7cIqLWJwrIRGkhgGG5tgvQ6AHxXMc8yg==}
+    dependencies:
+      '@leafer/canvas-web': 1.0.0-beta.6
+      '@leafer/core': 1.0.0-beta.6
+      '@leafer/image-web': 1.0.0-beta.6
+      '@leafer/interaction-web': 1.0.0-beta.6
+      '@leafer/partner': 1.0.0-beta.6
+    dev: false
 
   /@next/env@13.4.1:
     resolution: {integrity: sha512-eD6WCBMFjLFooLM19SIhSkWBHtaFrZFfg2Cxnyl3vS3DAdFRfnx5TY2RxlkuKXdIRCC0ySbtK9JXXt8qLCqzZg==}
@@ -301,6 +680,40 @@ packages:
       tslib: 2.5.0
     dev: false
 
+  /@rollup/plugin-typescript@11.1.2(rollup@3.26.3)(typescript@5.1.6):
+    resolution: {integrity: sha512-0ghSOCMcA7fl1JM+0gYRf+Q/HWyg+zg7/gDSc+fRLmlJWcW5K1I+CLRzaRhXf4Y3DRyPnnDo4M2ktw+a6JcDEg==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^2.14.0||^3.0.0
+      tslib: '*'
+      typescript: '>=3.7.0'
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+      tslib:
+        optional: true
+    dependencies:
+      '@rollup/pluginutils': 5.0.2(rollup@3.26.3)
+      resolve: 1.22.2
+      rollup: 3.26.3
+      typescript: 5.1.6
+    dev: true
+
+  /@rollup/pluginutils@5.0.2(rollup@3.26.3):
+    resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@types/estree': 1.0.1
+      estree-walker: 2.0.2
+      picomatch: 2.3.1
+      rollup: 3.26.3
+    dev: true
+
   /@rushstack/eslint-patch@1.2.0:
     resolution: {integrity: sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==}
     dev: false
@@ -327,7 +740,7 @@ packages:
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
     dev: true
 
-  /@turbo/gen@1.9.7(@types/node@17.0.45)(typescript@4.9.5):
+  /@turbo/gen@1.9.7(@types/node@17.0.45)(typescript@5.1.6):
     resolution: {integrity: sha512-mjenROdRNvYxZixNfamJY/XxwKMT+01PuQby8+qdRUUa5ZLBPOv4rw11n+II1O8ZnpFpBJIGGFJcnRNY+lCddw==}
     hasBin: true
     dependencies:
@@ -338,7 +751,7 @@ packages:
       minimatch: 9.0.0
       node-plop: 0.26.3
       semver: 7.5.0
-      ts-node: 10.9.1(@types/node@17.0.45)(typescript@4.9.5)
+      ts-node: 10.9.1(@types/node@17.0.45)(typescript@5.1.6)
       update-check: 1.5.4
       validate-npm-package-name: 5.0.0
     transitivePeerDependencies:
@@ -346,6 +759,10 @@ packages:
       - '@swc/wasm'
       - '@types/node'
       - typescript
+    dev: true
+
+  /@types/estree@1.0.1:
+    resolution: {integrity: sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==}
     dev: true
 
   /@types/glob@7.2.0:
@@ -402,7 +819,7 @@ packages:
       '@types/node': 17.0.45
     dev: true
 
-  /@typescript-eslint/parser@5.59.2(eslint@8.45.0)(typescript@4.9.5):
+  /@typescript-eslint/parser@5.59.2(eslint@8.45.0)(typescript@5.1.6):
     resolution: {integrity: sha512-uq0sKyw6ao1iFOZZGk9F8Nro/8+gfB5ezl1cA06SrqbgJAt0SRoFhb9pXaHvkrxUpZaoLxt8KlovHNk8Gp6/HQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -414,10 +831,10 @@ packages:
     dependencies:
       '@typescript-eslint/scope-manager': 5.59.2
       '@typescript-eslint/types': 5.59.2
-      '@typescript-eslint/typescript-estree': 5.59.2(typescript@4.9.5)
+      '@typescript-eslint/typescript-estree': 5.59.2(typescript@5.1.6)
       debug: 4.3.4
       eslint: 8.45.0
-      typescript: 4.9.5
+      typescript: 5.1.6
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -435,7 +852,7 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: false
 
-  /@typescript-eslint/typescript-estree@5.59.2(typescript@4.9.5):
+  /@typescript-eslint/typescript-estree@5.59.2(typescript@5.1.6):
     resolution: {integrity: sha512-+j4SmbwVmZsQ9jEyBMgpuBD0rKwi9RxRpjX71Brr73RsYnEr3Lt5QZ624Bxphp8HUkSKfqGnPJp1kA5nl0Sh7Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -450,8 +867,8 @@ packages:
       globby: 11.1.0
       is-glob: 4.0.3
       semver: 7.5.0
-      tsutils: 3.21.0(typescript@4.9.5)
-      typescript: 4.9.5
+      tsutils: 3.21.0(typescript@5.1.6)
+      typescript: 5.1.6
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -1076,7 +1493,7 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
-  /eslint-config-next@13.4.1(eslint@8.45.0)(typescript@4.9.5):
+  /eslint-config-next@13.4.1(eslint@8.45.0)(typescript@5.1.6):
     resolution: {integrity: sha512-ajuxjCkW1hvirr0EQZb3/B/bFH52Z7CT89uCtTcICFL9l30i5c8hN4p0LXvTjdOXNPV5fEDcxBgGHgXdzTj1/A==}
     peerDependencies:
       eslint: ^7.23.0 || ^8.0.0
@@ -1087,7 +1504,7 @@ packages:
     dependencies:
       '@next/eslint-plugin-next': 13.4.1
       '@rushstack/eslint-patch': 1.2.0
-      '@typescript-eslint/parser': 5.59.2(eslint@8.45.0)(typescript@4.9.5)
+      '@typescript-eslint/parser': 5.59.2(eslint@8.45.0)(typescript@5.1.6)
       eslint: 8.45.0
       eslint-import-resolver-node: 0.3.7
       eslint-import-resolver-typescript: 3.5.5(@typescript-eslint/parser@5.59.2)(eslint-import-resolver-node@0.3.7)(eslint-plugin-import@2.27.5)(eslint@8.45.0)
@@ -1095,7 +1512,7 @@ packages:
       eslint-plugin-jsx-a11y: 6.7.1(eslint@8.45.0)
       eslint-plugin-react: 7.32.2(eslint@8.45.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.45.0)
-      typescript: 4.9.5
+      typescript: 5.1.6
     transitivePeerDependencies:
       - eslint-import-resolver-webpack
       - supports-color
@@ -1174,7 +1591,7 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.59.2(eslint@8.45.0)(typescript@4.9.5)
+      '@typescript-eslint/parser': 5.59.2(eslint@8.45.0)(typescript@5.1.6)
       debug: 3.2.7
       eslint: 8.45.0
       eslint-import-resolver-node: 0.3.7
@@ -1193,7 +1610,7 @@ packages:
       '@typescript-eslint/parser':
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.59.2(eslint@8.45.0)(typescript@4.9.5)
+      '@typescript-eslint/parser': 5.59.2(eslint@8.45.0)(typescript@5.1.6)
       array-includes: 3.1.6
       array.prototype.flat: 1.3.1
       array.prototype.flatmap: 1.3.1
@@ -1385,6 +1802,10 @@ packages:
     resolution: {integrity: sha512-MMdARuVEQziNTeJD8DgMqmhwR11BRQ/cBP+pLtYdSTnf3MIO8fFeiINEbX36ZdNlfU/7A9f3gUw49B3oQsvwBA==}
     engines: {node: '>=4.0'}
 
+  /estree-walker@2.0.2:
+    resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
+    dev: true
+
   /esutils@2.0.3:
     resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
     engines: {node: '>=0.10.0'}
@@ -1505,6 +1926,14 @@ packages:
 
   /fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
+
+  /fsevents@2.3.2:
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
 
   /function-bind@1.1.1:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
@@ -2079,6 +2508,14 @@ packages:
       language-subtag-registry: 0.3.22
     dev: false
 
+  /leafer-ui@1.0.0-beta.6:
+    resolution: {integrity: sha512-692b2OIq/1A0c5Dx8aruJ9gokybRc61928ZMcpTCGLB5v5+A1q4H0eVoSXo1XQ/VuyCgo6I6aUUfBxFJJcfaBA==}
+    dependencies:
+      '@leafer-ui/interface': 1.0.0-beta.6
+      '@leafer-ui/web': 1.0.0-beta.6
+      '@leafer/interface': 1.0.0-beta.6
+    dev: false
+
   /levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
@@ -2198,6 +2635,12 @@ packages:
   /nanoid@3.3.6:
     resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+    dev: false
+
+  /nanoid@4.0.2:
+    resolution: {integrity: sha512-7ZtY5KTCNheRGfEFxnedV5zFiORN1+Y1N6zvPTnHQd8ENUvfaDBeuJDZb2bN/oXwXxu3qkTXDzy57W5vAmDTBw==}
+    engines: {node: ^14 || ^16 || >=18}
     hasBin: true
     dev: false
 
@@ -2630,6 +3073,14 @@ packages:
     dependencies:
       glob: 7.2.3
 
+  /rollup@3.26.3:
+    resolution: {integrity: sha512-7Tin0C8l86TkpcMtXvQu6saWH93nhG3dGQ1/+l5V2TDMceTxO7kDiK6GzbfLWNNxqJXm591PcEZUozZm51ogwQ==}
+    engines: {node: '>=14.18.0', npm: '>=8.0.0'}
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
   /run-applescript@5.0.0:
     resolution: {integrity: sha512-XcT5rBksx1QdIhlFOCtgZkB99ZEouFZ1E2Kc2LHqNW13U3/74YGdkQRmThTwxy4QIyookibDKYZOPqX//6BlAg==}
     engines: {node: '>=12'}
@@ -2928,7 +3379,7 @@ packages:
     dependencies:
       is-number: 7.0.0
 
-  /ts-node@10.9.1(@types/node@17.0.45)(typescript@4.9.5):
+  /ts-node@10.9.1(@types/node@17.0.45)(typescript@5.1.6):
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -2954,7 +3405,7 @@ packages:
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
-      typescript: 4.9.5
+      typescript: 5.1.6
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     dev: true
@@ -2974,14 +3425,14 @@ packages:
   /tslib@2.5.0:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
 
-  /tsutils@3.21.0(typescript@4.9.5):
+  /tsutils@3.21.0(typescript@5.1.6):
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
     engines: {node: '>= 6'}
     peerDependencies:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
     dependencies:
       tslib: 1.14.1
-      typescript: 4.9.5
+      typescript: 5.1.6
     dev: false
 
   /turbo-darwin-64@1.9.7:
@@ -3068,9 +3519,9 @@ packages:
       is-typed-array: 1.1.10
     dev: false
 
-  /typescript@4.9.5:
-    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
-    engines: {node: '>=4.2.0'}
+  /typescript@5.1.6:
+    resolution: {integrity: sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==}
+    engines: {node: '>=14.17'}
     hasBin: true
 
   /uglify-js@3.17.4:
