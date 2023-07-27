@@ -29,9 +29,6 @@ importers:
       danmaku-leafer:
         specifier: workspace:^
         version: link:../../packages/danmaku-leafer
-      leafer-ui:
-        specifier: 1.0.0-beta.6
-        version: 1.0.0-beta.6
       next:
         specifier: ^13.4.1
         version: 13.4.1(react-dom@18.2.0)(react@18.2.0)

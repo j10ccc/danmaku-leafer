@@ -2,12 +2,11 @@
 
 import { useEffect, useRef } from "react";
 import { Bullet, Danmaku } from "danmaku-leafer";
-import { Leafer } from "leafer-ui";
 
 const DemoPage = () => {
   const danmakuApp = useRef<Danmaku>();
 
-  const debugApp = useRef<Leafer>();
+  const debugApp = useRef<Danmaku["app"]>();
 
   useEffect(() => {
     danmakuApp.current = new Danmaku("container");
