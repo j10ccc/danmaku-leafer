@@ -20,7 +20,8 @@ export class Bullet {
   fontSize: number;
   rotate: number;
   speed: number;
-  instance: Rect;
+
+  instance: Text;
 
   constructor({
     text = "",
@@ -47,11 +48,41 @@ export class Bullet {
       fill: color,
       text
     });
+
   }
 
-  display(view: Group) {
+  /**
+   * Fire the bullet
+   *
+   * Place the bullet and add bullet to app
+   *
+   * @param view leafer app
+   */
+  fire(view: Group) {
+    // place out of screen
+    if (this.mode === Mode.Normal) {
+      this.instance.x = view.width;
+      this.instance.y = 0;
+    }
+
     view.add(this.instance);
     console.log("display bullet: ", this.text);
   }
 
+
+  /**
+   * Bullet animate action
+   *
+   * @returns should animate end
+   */
+  animate(): boolean {
+    if (this.mode === Mode.Normal) {
+      this.instance.move(-2, 0);
+      const textWidth = this.instance.getBounds("content", "inner").width;
+      if (this.instance.x + textWidth < 0) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

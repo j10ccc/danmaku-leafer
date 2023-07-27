@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { Bullet, Danmaku } from "danmaku-leafer";
-import { Leafer, Text } from "leafer-ui";
+import { Leafer } from "leafer-ui";
 
 const DemoPage = () => {
   const danmakuApp = useRef<Danmaku>();
@@ -14,16 +14,16 @@ const DemoPage = () => {
     debugApp.current = danmakuApp.current.app;
   }, []);
 
-  const debugRender = () => {
-    debugApp.current.add(new Text({ text: "你好", fill: "black"}));
-  };
-
   const handleLoad = () => {
-    danmakuApp.current.preloadBullets([new Bullet({ text: "load" })]);
+    danmakuApp.current.preloadBullets([
+      new Bullet({ text: "load", ctime: 0 })
+    ]);
   };
 
   const handleInsert = () => {
-    danmakuApp.current.insertBullets(new Bullet({ text: "hello" }));
+    danmakuApp.current.insertBullets(
+      new Bullet({ text: "hello", ctime: danmakuApp.current.currentTime + 500 })
+    );
   };
 
   const handlePause = () => {
@@ -43,7 +43,6 @@ const DemoPage = () => {
         <li> <button onClick={handleInsert}>insert danmaku</button> </li>
         <li> <button onClick={handlePause}>pause danmaku</button> </li>
         <li> <button onClick={handleStart}>start danmaku</button> </li>
-        <li> <button onClick={debugRender}>debug render</button> </li>
       </ul>
     </>
   );

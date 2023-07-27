@@ -1,12 +1,14 @@
-import { Leafer } from "leafer-ui";
+import { AnimateEvent, IEventListenerId, Leafer } from "leafer-ui";
 import { Bullet } from "./Bullet";
 
 export class Danmaku {
   app: Leafer;
   currentTime: number;
   waitingQueue: Array<Bullet>;
+  flyingQueue: Set<Bullet>;
   finishedQueue: Array<Bullet>;
   timer = 0;
+  event: IEventListenerId | null;
 
   _fireInterval: number;
 
@@ -14,17 +16,33 @@ export class Danmaku {
     this.app = new Leafer({ view });
     this.currentTime = 0;
     this.waitingQueue = [];
+    this.flyingQueue = new Set<Bullet>();
     this.finishedQueue = [];
     this._fireInterval = 500;
+    this.event = null;
   }
 
   start() {
     clearInterval(this.timer);
 
+    // The unique frame event
+    // Execute animate action of items in flying queue
+    // Then check if animate end, if it is, move to finished queue
+    this.event = this.app.on_(AnimateEvent.FRAME, () => {
+      [...this.flyingQueue].forEach(item => {
+        const shouldFinish = item.animate();
+        if (shouldFinish) {
+          this.flyingQueue.delete(item);
+          this.finishedQueue.push(item);
+          console.log(`bullet: ${item.text} finished`);
+        }
+      });
+    });
+
+    // check waitingQueue
     this.timer = setInterval(() => {
       this.fire();
       this.currentTime += this._fireInterval;
-
     }, this._fireInterval);
   }
 
@@ -32,12 +50,15 @@ export class Danmaku {
     clearInterval(this.timer);
   }
 
+  /**
+   * Fire ready bullets in waiting queue
+   */
   fire() {
     for (const bullet of [...this.waitingQueue]) {
       if (bullet.ctime < this.currentTime) {
-        bullet.display(this.app);
+        bullet.fire(this.app);
         this.waitingQueue.shift();
-        this.finishedQueue.push(bullet);
+        this.flyingQueue.add(bullet);
       } else {
         break;
       }
@@ -53,10 +74,12 @@ export class Danmaku {
   }
 
   insertBullets(bullet: Bullet) {
-    if (bullet.ctime < this.currentTime) {
+    if (bullet.ctime > this.currentTime) {
+      this.waitingQueue.push(bullet);
+    } else {
       console.warn("Insert a expired bullet");
+      this.finishedQueue.push(bullet);
     }
-    this.waitingQueue.push(bullet);
   }
 
   removeBullet(id: string) {
