@@ -1,9 +1,2 @@
-import { Bullet, Mode } from "./Bullet";
-import { Danmaku } from "./Danmaku";
-
-export {
-  Bullet,
-  Danmaku,
-};
-
-export { Mode };
+export * from "./Bullet";
+export * from "./Danmaku";
