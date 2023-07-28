@@ -30,10 +30,11 @@ export class Danmaku {
     // Then check if animate end, if it is, move to finished queue
     this.event = this.app.on_(AnimateEvent.FRAME, () => {
       [...this.flyingQueue].forEach(item => {
-        const shouldFinish = item.animate();
+        const shouldFinish = item.animate(this.currentTime);
         if (shouldFinish) {
           this.flyingQueue.delete(item);
           this.finishedQueue.push(item);
+          this.app.remove(item.instance);
           console.log(`bullet: ${item.text} finished`);
         }
       });

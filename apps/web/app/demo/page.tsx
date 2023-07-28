@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Bullet, Danmaku } from "danmaku-leafer";
+import { Mode } from "danmaku-leafer";
 
 const DemoPage = () => {
   const danmakuApp = useRef<Danmaku>();
+  const [playing, setPlaying] = useState(false);
 
   const debugApp = useRef<Danmaku["app"]>();
 
@@ -13,24 +15,31 @@ const DemoPage = () => {
     debugApp.current = danmakuApp.current.app;
   }, []);
 
-  const handleLoad = () => {
-    danmakuApp.current.preloadBullets([
-      new Bullet({ text: "load", ctime: 0 })
-    ]);
-  };
-
-  const handleInsert = () => {
+  const handleInsertNormal = () => {
     danmakuApp.current.insertBullets(
-      new Bullet({ text: "hello", ctime: danmakuApp.current.currentTime + 500 })
+      new Bullet({ text: "hello", ctime: danmakuApp.current.currentTime + 500, mode: Mode.Normal })
     );
   };
 
-  const handlePause = () => {
-    danmakuApp.current.pause();
+  const handleInsertTop = () => {
+    danmakuApp.current.insertBullets(
+      new Bullet({ text: "top", ctime: danmakuApp.current.currentTime + 500, mode: Mode.Top })
+    );
   };
 
-  const handleStart = () => {
-    danmakuApp.current.start();
+  const handleInsertBottom = () => {
+    danmakuApp.current.insertBullets(
+      new Bullet({ text: "bottom", ctime: danmakuApp.current.currentTime + 500, mode: Mode.Bottom })
+    );
+  };
+
+  const handleSwitch = () => {
+    if (playing) {
+      danmakuApp.current.pause();
+    } else {
+      danmakuApp.current.start();
+    }
+    setPlaying(!playing);
   };
 
   return (
@@ -38,10 +47,14 @@ const DemoPage = () => {
       <h1>Demo</h1>
       <div id="container" style={{ border: "2px solid black"}}></div>
       <ul>
-        <li> <button onClick={handleLoad}>load danmaku</button> </li>
-        <li> <button onClick={handleInsert}>insert danmaku</button> </li>
-        <li> <button onClick={handlePause}>pause danmaku</button> </li>
-        <li> <button onClick={handleStart}>start danmaku</button> </li>
+        <li>
+          <button onClick={handleSwitch}>
+            { playing ? "pause app" : "start app" }
+          </button>
+        </li>
+        <li> <button disabled={!playing} onClick={handleInsertNormal}>insert normal danmaku</button> </li>
+        <li> <button disabled={!playing} onClick={handleInsertBottom}>insert bottom danmaku</button> </li>
+        <li> <button disabled={!playing} onClick={handleInsertTop}>insert top danmaku</button> </li>
       </ul>
     </>
   );

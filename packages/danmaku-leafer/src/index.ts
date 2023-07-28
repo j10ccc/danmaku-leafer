@@ -1,7 +1,9 @@
-import { Bullet } from "./Bullet";
+import { Bullet, Mode } from "./Bullet";
 import { Danmaku } from "./Danmaku";
 
 export {
   Bullet,
-  Danmaku
+  Danmaku,
 };
+
+export { Mode };
