@@ -1,8 +1,15 @@
-import { AnimateEvent, IEventListenerId, Leafer } from "leafer-ui";
+import { AnimateEvent, IEventListenerId, Leafer, App } from "leafer-ui";
 import { Bullet } from "./Bullet";
 
+export interface BulletLayers {
+  /** For moving bullets(normal mode) */
+  moving: Leafer;
+  /** For steady bullets(top, bottom mode) */
+  steady: Leafer;
+}
+
 export class Danmaku {
-  app: Leafer;
+  app: App;
   currentTime: number;
   waitingQueue: Array<Bullet>;
   flyingQueue: Set<Bullet>;
@@ -10,16 +17,23 @@ export class Danmaku {
   timer = 0;
   event: IEventListenerId | null;
 
+  bulletLayers: BulletLayers;
+
   _fireInterval: number;
 
   constructor(view: string) {
-    this.app = new Leafer({ view });
+    this.app = new App({ view, type: "user" });
     this.currentTime = 0;
     this.waitingQueue = [];
     this.flyingQueue = new Set<Bullet>();
     this.finishedQueue = [];
     this._fireInterval = 500;
     this.event = null;
+
+    this.bulletLayers = {
+      moving: this.app.addLeafer(),
+      steady: this.app.addLeafer(),
+    };
   }
 
   start() {
@@ -34,7 +48,7 @@ export class Danmaku {
         if (shouldFinish) {
           this.flyingQueue.delete(item);
           this.finishedQueue.push(item);
-          this.app.remove(item.instance);
+          item.exit(this.bulletLayers);
           console.log(`bullet: ${item.text} finished`);
         }
       });
@@ -57,7 +71,7 @@ export class Danmaku {
   fire() {
     for (const bullet of [...this.waitingQueue]) {
       if (bullet.ctime < this.currentTime) {
-        bullet.fire(this.app);
+        bullet.fire(this.bulletLayers);
         this.waitingQueue.shift();
         this.flyingQueue.add(bullet);
       } else {

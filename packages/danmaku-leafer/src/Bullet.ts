@@ -1,5 +1,6 @@
-import { Group, Text, Rect } from "leafer-ui";
+import { Text } from "leafer-ui";
 import { nanoid } from "nanoid";
+import type { BulletLayers } from "./Danmaku";
 
 export enum Mode {
   Normal = 1,
@@ -45,7 +46,7 @@ export class Bullet {
     this.fontSize = fontSize;
     this.rotate = rotate;
     this.speed = speed;
-    this._pinnedResidenceTime = 3000;
+    this._pinnedResidenceTime = _pinnedResidenceTime;
 
     this.instance = new Text({
       fill: color,
@@ -62,7 +63,8 @@ export class Bullet {
    *
    * @param view leafer app
    */
-  fire(view: Group) {
+  fire(layers: BulletLayers) {
+    const view = this.mode === Mode.Normal ? layers.moving: layers.steady;
     // place out of screen
     if (this.mode === Mode.Normal) {
       this.instance.x = view.width;
@@ -100,5 +102,14 @@ export class Bullet {
     } else {
       return false;
     }
+  }
+
+  /**
+   * Exit from the view it exits
+   * @param layers
+   */
+  exit(layers: BulletLayers) {
+    const view = this.mode === Mode.Normal ? layers.moving: layers.steady;
+    view.remove(this.instance);
   }
 }

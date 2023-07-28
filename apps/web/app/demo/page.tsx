@@ -45,7 +45,9 @@ const DemoPage = () => {
   return (
     <>
       <h1>Demo</h1>
-      <div id="container" style={{ border: "2px solid black"}}></div>
+      <div style={{ border: "2px solid black"}}>
+        <div id="container" />
+      </div>
       <ul>
         <li>
           <button onClick={handleSwitch}>
