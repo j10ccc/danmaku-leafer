@@ -1,12 +1,6 @@
 import { AnimateEvent, IEventListenerId, Leafer, App } from "leafer-ui";
 import { Bullet } from "./Bullet";
-
-export interface BulletLayers {
-  /** For moving bullets(normal mode) */
-  moving: Leafer;
-  /** For steady bullets(top, bottom mode) */
-  steady: Leafer;
-}
+import { Layer, BulletLayers } from "./Layer";
 
 export class Danmaku {
   app: App;
@@ -31,8 +25,8 @@ export class Danmaku {
     this.event = null;
 
     this.bulletLayers = {
-      moving: this.app.addLeafer(),
-      steady: this.app.addLeafer(),
+      moving: new Layer({ name: "moving", instance: this.app.addLeafer()}),
+      steady: new Layer({ name: "steady", instance: this.app.addLeafer()}),
     };
   }
 

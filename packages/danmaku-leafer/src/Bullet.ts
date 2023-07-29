@@ -1,6 +1,6 @@
 import { Text } from "leafer-ui";
 import { nanoid } from "nanoid";
-import type { BulletLayers } from "./Danmaku";
+import type { BulletLayers } from "./Layer";
 
 export enum Mode {
   Normal = 1,
@@ -55,7 +55,6 @@ export class Bullet {
 
   }
 
-
   /**
    * Fire the bullet
    *
@@ -64,7 +63,7 @@ export class Bullet {
    * @param view leafer app
    */
   fire(layers: BulletLayers) {
-    const view = this.mode === Mode.Normal ? layers.moving: layers.steady;
+    const view = this.mode === Mode.Normal ? layers.moving.instance: layers.steady.instance;
     // place out of screen
     if (this.mode === Mode.Normal) {
       this.instance.x = view.width;
@@ -109,7 +108,7 @@ export class Bullet {
    * @param layers
    */
   exit(layers: BulletLayers) {
-    const view = this.mode === Mode.Normal ? layers.moving: layers.steady;
+    const view = this.mode === Mode.Normal ? layers.moving.instance: layers.steady.instance;
     view.remove(this.instance);
   }
 }
