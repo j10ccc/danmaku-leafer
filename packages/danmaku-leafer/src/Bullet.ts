@@ -1,5 +1,6 @@
 import { Text } from "leafer-ui";
 import { nanoid } from "nanoid";
+import { Channel } from "./Channel";
 import type { BulletLayers } from "./Layer";
 
 export enum Mode {
@@ -21,6 +22,7 @@ export class Bullet {
   fontSize: number;
   rotate: number;
   speed: number;
+  channel: Channel | null;
   _pinnedResidenceTime: number;
 
   instance: Text;
@@ -33,7 +35,7 @@ export class Bullet {
     ctime = 0,
     fontSize = 16,
     rotate = 0,
-    speed = 1,
+    speed = 2,
     _pinnedResidenceTime = 3000
   }: ConstructorProps) {
     this._id = nanoid();
@@ -47,6 +49,7 @@ export class Bullet {
     this.rotate = rotate;
     this.speed = speed;
     this._pinnedResidenceTime = _pinnedResidenceTime;
+    this.channel = null;
 
     this.instance = new Text({
       fill: color,
@@ -63,18 +66,10 @@ export class Bullet {
    * @param view leafer app
    */
   fire(layers: BulletLayers) {
-    const view = this.mode === Mode.Normal ? layers.moving.instance: layers.steady.instance;
-    // place out of screen
-    if (this.mode === Mode.Normal) {
-      this.instance.x = view.width;
-      this.instance.y = 0;
-    } else if (this.mode === Mode.Top) {
-      this.instance.x = (view.width - this.instance.getBounds("content").width) / 2;
-      this.instance.y = 0;
-    } else if (this.mode === Mode.Bottom) {
-      this.instance.x = (view.width - this.instance.getBounds("content").width) / 2;
-      this.instance.y = view.height - this.instance.getBounds("content").height;
-    }
+    const layer = layers[this.mode];
+    const view = layer.instance;
+
+    layer.placeBullet(this);
 
     view.add(this.instance);
     console.log("display bullet: ", this.text);
@@ -89,7 +84,7 @@ export class Bullet {
    */
   animate(currentTime: number): boolean {
     if (this.mode === Mode.Normal) {
-      this.instance.move(-2, 0);
+      this.instance.move(-1 * this.speed, 0);
       const textWidth = this.instance.getBounds("content", "inner").width;
       if (this.instance.x + textWidth < 0) {
         return true;
@@ -108,7 +103,8 @@ export class Bullet {
    * @param layers
    */
   exit(layers: BulletLayers) {
-    const view = this.mode === Mode.Normal ? layers.moving.instance: layers.steady.instance;
+    this.channel?.shiftBullet();
+    const view = layers[this.mode].instance;
     view.remove(this.instance);
   }
 }
