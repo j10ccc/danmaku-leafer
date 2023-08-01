@@ -9,7 +9,7 @@
     "dev": "rollup -c -w"
   },
   "dependencies": {
-    "leafer-ui": "1.0.0-beta.6",
+    "leafer-ui": "1.0.0-beta.7",
     "nanoid": "^4.0.2"
   },
   "devDependencies": {

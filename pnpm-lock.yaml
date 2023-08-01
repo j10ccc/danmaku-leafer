@@ -61,8 +61,8 @@ importers:
   packages/danmaku-leafer:
     dependencies:
       leafer-ui:
-        specifier: 1.0.0-beta.6
-        version: 1.0.0-beta.6
+        specifier: 1.0.0-beta.7
+        version: 1.0.0-beta.7
       nanoid:
         specifier: ^4.0.2
         version: 4.0.2
@@ -204,352 +204,352 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@leafer-ui/app@1.0.0-beta.6:
-    resolution: {integrity: sha512-JHjEYNiF2YRkWTCs4BaxLJDSMpVJ43vBmxhVj7FQ75pu5sQNgAzRuZRj/vs/VJFvyn7Q2Yaeni06L2JpXsNdUg==}
+  /@leafer-ui/app@1.0.0-beta.7:
+    resolution: {integrity: sha512-9Fu8D/C1cZDCne/9dmjUz/HTF/ojmM4/f4mfd+g65rbcArceSiP1XUbFKZVDsONgK7uIA5aT4yCtROMdnSGNug==}
     dependencies:
-      '@leafer-ui/data': 1.0.0-beta.6
-      '@leafer-ui/display': 1.0.0-beta.6
-      '@leafer-ui/type': 1.0.0-beta.6
-      '@leafer/core': 1.0.0-beta.6
+      '@leafer-ui/data': 1.0.0-beta.7
+      '@leafer-ui/display': 1.0.0-beta.7
+      '@leafer-ui/type': 1.0.0-beta.7
+      '@leafer/core': 1.0.0-beta.7
     dev: false
 
-  /@leafer-ui/bounds@1.0.0-beta.6:
-    resolution: {integrity: sha512-/pRpluPyynks4q7yAXucSFOkILb7p7lepfcEjkoPa9Z68HPrIcgvLeyjDNQZBNw5YuraMqT6AOf8ZmKNPAQnPQ==}
+  /@leafer-ui/bounds@1.0.0-beta.7:
+    resolution: {integrity: sha512-5uaV1a5F7qCYPJWqE5B1Wmuhpv3l12/m+m4VVxK+09nf5UlPIiucqYD18jmMAiIb1yJNCfd+Y7Q1riXYM3jrIQ==}
     dependencies:
-      '@leafer/core': 1.0.0-beta.6
+      '@leafer/core': 1.0.0-beta.7
     dev: false
 
-  /@leafer-ui/color@1.0.0-beta.6:
-    resolution: {integrity: sha512-z1UYSvVRraHlnehO+fcuVg7F4z8p5X6lXC1+jevFLnfAj2p/SziD9G6KyyH4BsKaJTft3qAqpkSwusOIs6nwtA==}
+  /@leafer-ui/color@1.0.0-beta.7:
+    resolution: {integrity: sha512-/VtHfvlEk94pt9B8KYNN9w+6flpa861zFW4NkGGQ2Jv4MggOHW+VQbXR+FU75SjiiUzsOiURAjsaPtULS9jTLw==}
     dev: false
 
-  /@leafer-ui/core@1.0.0-beta.6:
-    resolution: {integrity: sha512-/QBA68e+/Zlty6V6y4yjgT+mXoXFBIC702HSee66iLiWyhocGyQ29GP1zbXOnbhtRqIb1dkVkemJCkXqbfsHgw==}
+  /@leafer-ui/core@1.0.0-beta.7:
+    resolution: {integrity: sha512-uKeHMmC6S3NPVkUm3Uv21CpI75iw/yftqk0+NF25jAGUqAjAyOOCTzBiKvYSfAdvF0TErofo17S2YM7Dkraawg==}
     dependencies:
-      '@leafer-ui/app': 1.0.0-beta.6
-      '@leafer-ui/decorator': 1.0.0-beta.6
-      '@leafer-ui/display': 1.0.0-beta.6
-      '@leafer-ui/display-module': 1.0.0-beta.6
-      '@leafer-ui/external': 1.0.0-beta.6
-      '@leafer-ui/type': 1.0.0-beta.6
+      '@leafer-ui/app': 1.0.0-beta.7
+      '@leafer-ui/decorator': 1.0.0-beta.7
+      '@leafer-ui/display': 1.0.0-beta.7
+      '@leafer-ui/display-module': 1.0.0-beta.7
+      '@leafer-ui/external': 1.0.0-beta.7
+      '@leafer-ui/type': 1.0.0-beta.7
     dev: false
 
-  /@leafer-ui/data@1.0.0-beta.6:
-    resolution: {integrity: sha512-o3UQgblN6wbKdXB4mIPPlwDrEo5fT3XBpKGBdmA9hd77P1ysKSeUHoNiCnbucWBXNladm91viXuRkb/DRLoGng==}
+  /@leafer-ui/data@1.0.0-beta.7:
+    resolution: {integrity: sha512-KXEy131+lAUDd4vwu7hm1OCAdyVOJX5bZTTPFAOd5wH9Jeo1vTiR3NSMeTLglfRdOFgW9MEXHLTJXkhnhp4txw==}
     dependencies:
-      '@leafer/core': 1.0.0-beta.6
+      '@leafer/core': 1.0.0-beta.7
     dev: false
 
-  /@leafer-ui/decorator@1.0.0-beta.6:
-    resolution: {integrity: sha512-TrVSOOSRuF9JPRkPtk/TESfa7JIrOiMj82LqkMG86RKMhftbD1p72vhJwpwt2TV7EuyQnfzAdksKxRQvRhLCOA==}
+  /@leafer-ui/decorator@1.0.0-beta.7:
+    resolution: {integrity: sha512-sUQ+hEYhkznSywxnUJb+IXiKaVRXulCh5kbaFTtRaUPG+SvdksgeHQNkmRxodHrR/o3hAHF0t6QcxkKODyavLw==}
     dependencies:
-      '@leafer/core': 1.0.0-beta.6
+      '@leafer/core': 1.0.0-beta.7
     dev: false
 
-  /@leafer-ui/display-module@1.0.0-beta.6:
-    resolution: {integrity: sha512-kaWCkTIrVoh4HjvMnSfL9twYr2DJyGnvFLbGgPVc7f2L5jlwa1S1pXUv/3qKAlwwk0Ij7LR6csIGuJlN760tlw==}
+  /@leafer-ui/display-module@1.0.0-beta.7:
+    resolution: {integrity: sha512-/EaZ7i60LVuQz7/hrjOHN6Q04r0vImd1pP8Q0LEZVCB9mGVsQQ80NR73I2DAZKoThzOd69ptyjx52FO22OcN6g==}
     dependencies:
-      '@leafer-ui/bounds': 1.0.0-beta.6
-      '@leafer-ui/hit': 1.0.0-beta.6
-      '@leafer-ui/render': 1.0.0-beta.6
+      '@leafer-ui/bounds': 1.0.0-beta.7
+      '@leafer-ui/hit': 1.0.0-beta.7
+      '@leafer-ui/render': 1.0.0-beta.7
     dev: false
 
-  /@leafer-ui/display@1.0.0-beta.6:
-    resolution: {integrity: sha512-3yHmevTxnCYVDFLVgpWdrqQgsLf5CHi2DJ/hZbiAxXggo6LDVf6YBE7Pdw626/+lUtbszrfbDm1GPzrECs0L2w==}
+  /@leafer-ui/display@1.0.0-beta.7:
+    resolution: {integrity: sha512-1HzY8yvoV+7I7au0PWIe+CnbiW2/1oojyrnz6xLl2wSbqc9Dqdyc1TBHi/2FPk6utIy/6WoeE1wXNLCa0DSxag==}
     dependencies:
-      '@leafer-ui/data': 1.0.0-beta.6
-      '@leafer-ui/decorator': 1.0.0-beta.6
-      '@leafer-ui/display-module': 1.0.0-beta.6
-      '@leafer-ui/text': 1.0.0-beta.6
-      '@leafer/core': 1.0.0-beta.6
+      '@leafer-ui/data': 1.0.0-beta.7
+      '@leafer-ui/decorator': 1.0.0-beta.7
+      '@leafer-ui/display-module': 1.0.0-beta.7
+      '@leafer-ui/text': 1.0.0-beta.7
+      '@leafer/core': 1.0.0-beta.7
     dev: false
 
-  /@leafer-ui/effect@1.0.0-beta.6:
-    resolution: {integrity: sha512-LdQcXc03WPHM9Z9Sk4/IYum6jz9dbCykpY9Q6I+05phbSxEj0PgGBAqwx+yXTSoSgF/0clLV6miwOnnZwbpsnw==}
+  /@leafer-ui/effect@1.0.0-beta.7:
+    resolution: {integrity: sha512-LDOerOXorcGPTxBn+T8P2nJL9v741MSQZ/U3NZYbEyJI/8VsU0SNlWkK2fosE1QZsSw2ywCbQLOiDlXCe+m4jQ==}
     dev: false
 
-  /@leafer-ui/external@1.0.0-beta.6:
-    resolution: {integrity: sha512-7tnT+MvjCjWxIp7ff9+MGInFocvmrOjNS0mwgWmvUfrwR1hRqzH8zE4c2hR4ZJZLE2YuptG96Wei08IrHhMI0g==}
+  /@leafer-ui/external@1.0.0-beta.7:
+    resolution: {integrity: sha512-hXyM/JJRQQ2Zfm8Qj4ZD57zaIoW9IJUN7x3jdYxTTTSJEbCuq9Yopaxedl6DrMKycXstktUFN2W6ktKv+ay8Wg==}
     dependencies:
-      '@leafer-ui/effect': 1.0.0-beta.6
-      '@leafer-ui/paint': 1.0.0-beta.6
+      '@leafer-ui/effect': 1.0.0-beta.7
+      '@leafer-ui/paint': 1.0.0-beta.7
     dev: false
 
-  /@leafer-ui/hit@1.0.0-beta.6:
-    resolution: {integrity: sha512-/5lR5GIYOlPGd5iRFPKuNs7bhZVQ32Nl+Wb9FNHvshxeUbi8ZNJv6xOc7RcXnM6xpF8xX5BSgfyYQPbmIOY6AA==}
+  /@leafer-ui/hit@1.0.0-beta.7:
+    resolution: {integrity: sha512-ZsEPe8bOCG94Tg7mKTpCFI7HCF9QfQki7w0uk57EWBh4pgQrDeY/5pMo7Fje3R9aX2tb0OypJtfDsDFsotCwhA==}
     dev: false
 
-  /@leafer-ui/interface@1.0.0-beta.6:
-    resolution: {integrity: sha512-DgD6N2/8ngExLq6cLWBOOW0Ty4tPw0w1jAcl29c1BoHtUb2WyjnHGLLCQ3Mex2s3ifjrtPdhm3DoNnVE3u57Mg==}
+  /@leafer-ui/interface@1.0.0-beta.7:
+    resolution: {integrity: sha512-AB5V8sTLMb9671GHC4F/M8ceSu05jRKFKO3ytNk8/1niPfBl9QkqiVA9jNPYqbsh6vNKasZQayn9xcMIlb9VYg==}
     dependencies:
-      '@leafer/interface': 1.0.0-beta.6
+      '@leafer/interface': 1.0.0-beta.7
     dev: false
 
-  /@leafer-ui/paint@1.0.0-beta.6:
-    resolution: {integrity: sha512-1MGRYVxd4BZowpqdHJsScgkA+T/ZU1/i6yWlfSvF3DvxBjIXJ8OAzj79Z/A8P6diBB2FYRaCQySddyd04v1now==}
+  /@leafer-ui/paint@1.0.0-beta.7:
+    resolution: {integrity: sha512-H7srXH/yhyhoHciwvcT75/7+bcYii90QHCHVQzhccsQxPnOMw/lK1ROkDqp8cDaMxV9iSeGTfUw+D2uXXrmz7w==}
     dependencies:
-      '@leafer-ui/color': 1.0.0-beta.6
-      '@leafer/core': 1.0.0-beta.6
+      '@leafer-ui/color': 1.0.0-beta.7
+      '@leafer/core': 1.0.0-beta.7
     dev: false
 
-  /@leafer-ui/render@1.0.0-beta.6:
-    resolution: {integrity: sha512-tlDXBql6ZY5MH48xSdVEdoYXlWx0vLBZcltpplurr+Th1KJLxZ77O8D77utRj6+a4PxlCP5Flcpw95myqAbgwQ==}
+  /@leafer-ui/render@1.0.0-beta.7:
+    resolution: {integrity: sha512-mDHHi2l/aZZvxLafE9Sy5SOpmi1VTaUJFKEe/M3DaYWnJCknykdiXwH7M4F1e10saDglSai3KIa9CGt5TihdqA==}
     dependencies:
-      '@leafer-ui/external': 1.0.0-beta.6
+      '@leafer-ui/external': 1.0.0-beta.7
     dev: false
 
-  /@leafer-ui/text@1.0.0-beta.6:
-    resolution: {integrity: sha512-NwcR18YCHRzGkcUk7laQ2ULU3mSBuwbjlJ9E8bvYlt1YzHetVRVqL5w/cu8T1/1B/P7UzeH1K007jjhVw6EUvw==}
+  /@leafer-ui/text@1.0.0-beta.7:
+    resolution: {integrity: sha512-/acuPousRSqZ8SKveNj6/aizZRv1d5oHyrimJbj3DD/PD5BUBohmMIRV/cNGAKiE3RpH6kgTVpIfoEoUQfo9Mw==}
     dependencies:
-      '@leafer-ui/core': 1.0.0-beta.6
+      '@leafer-ui/core': 1.0.0-beta.7
     dev: false
 
-  /@leafer-ui/type@1.0.0-beta.6:
-    resolution: {integrity: sha512-B+TWvlphPcvrGLxuWCea30OXxdxBaHSJhUnPCosuvNE5ICaQzOISiUeUfOUwHUX7xdzwNeAEmTmLakjNYIXNvg==}
+  /@leafer-ui/type@1.0.0-beta.7:
+    resolution: {integrity: sha512-g4D5jVG/BqLYsac4bf5ol3g0GTdEJxbIOJm+p5DRZ1mlHh7b1cXy09bAjqva60YtB2LSxlBu5gx07epsCIjyQA==}
     dependencies:
-      '@leafer-ui/core': 1.0.0-beta.6
+      '@leafer-ui/core': 1.0.0-beta.7
     dev: false
 
-  /@leafer-ui/web@1.0.0-beta.6:
-    resolution: {integrity: sha512-iAnOt3jcYvRJErx6wwvQR0VIdOvEylhl9KqEJM1OruoqMW/SbK157gNMbO/Kw2o0yiT0vPryrzSM88DS1ntu6w==}
+  /@leafer-ui/web@1.0.0-beta.7:
+    resolution: {integrity: sha512-iQaGvEE5rchQSVbtEdCHteR7n4LeWEiVbMLhCRTImv2oU+aiz0g7uBF3O+15dNx4mhQDml5N7FOZzF2x3hjWwQ==}
     dependencies:
-      '@leafer-ui/core': 1.0.0-beta.6
-      '@leafer/web': 1.0.0-beta.6
+      '@leafer-ui/core': 1.0.0-beta.7
+      '@leafer/web': 1.0.0-beta.7
     dev: false
 
-  /@leafer/canvas-web@1.0.0-beta.6:
-    resolution: {integrity: sha512-Dy+k3XzabsjxLQesTFdBWXd9fN0xNSgVHI5ErKrXCWUgiUD+by5keHhmlmtbZNJRqW3gayRDDh4j0vwidxwuYw==}
+  /@leafer/canvas-web@1.0.0-beta.7:
+    resolution: {integrity: sha512-jLEkrejYqRMEedsHpSZ/NFjnVbnSYeHY/hdelq6NYNaT6VTMuBJtm3UyiPk5ZAFMmkRPWO602nKUeZ45Vvg3Xg==}
     dependencies:
-      '@leafer/canvas': 1.0.0-beta.6
-      '@leafer/data': 1.0.0-beta.6
-      '@leafer/debug': 1.0.0-beta.6
-      '@leafer/event': 1.0.0-beta.6
-      '@leafer/math': 1.0.0-beta.6
+      '@leafer/canvas': 1.0.0-beta.7
+      '@leafer/data': 1.0.0-beta.7
+      '@leafer/debug': 1.0.0-beta.7
+      '@leafer/event': 1.0.0-beta.7
+      '@leafer/math': 1.0.0-beta.7
     dev: false
 
-  /@leafer/canvas@1.0.0-beta.6:
-    resolution: {integrity: sha512-UsPTeUBOh5Vr1NBi0NudpGArnKhk8NpDfD/NrATmVWecEo+rbFiwwuWWWA/JbMYn6RiPumWoINmPaoOchQ8zug==}
+  /@leafer/canvas@1.0.0-beta.7:
+    resolution: {integrity: sha512-JfbRP98FJ4RpxV+e/c9eyumlhN7wtCKpWk7VbNXV0k7uG9kwm06TXieRHnrKgXew1zDHJg22FR7GYOv+gw+lMA==}
     dependencies:
-      '@leafer/data': 1.0.0-beta.6
-      '@leafer/file': 1.0.0-beta.6
-      '@leafer/list': 1.0.0-beta.6
-      '@leafer/math': 1.0.0-beta.6
-      '@leafer/platform': 1.0.0-beta.6
+      '@leafer/data': 1.0.0-beta.7
+      '@leafer/file': 1.0.0-beta.7
+      '@leafer/list': 1.0.0-beta.7
+      '@leafer/math': 1.0.0-beta.7
+      '@leafer/platform': 1.0.0-beta.7
     dev: false
 
-  /@leafer/core@1.0.0-beta.6:
-    resolution: {integrity: sha512-2B/YxrAU+7q9QoXRI/J+5KNuxRdqGUqbfLNFsp4ADB4vC78Kw0okJVzbYI7bPJZXjGNhUiUeIqMJKmnrdXxvUA==}
+  /@leafer/core@1.0.0-beta.7:
+    resolution: {integrity: sha512-aXNe9plSN3Pv0TR4pzABF0djsdwFvBQil4iuKemaExE0yUhN8QBfOgyCSWHlP0eljpGC3oOF7DRHMsSArZE3FQ==}
     dependencies:
-      '@leafer/canvas': 1.0.0-beta.6
-      '@leafer/data': 1.0.0-beta.6
-      '@leafer/debug': 1.0.0-beta.6
-      '@leafer/decorator': 1.0.0-beta.6
-      '@leafer/display': 1.0.0-beta.6
-      '@leafer/display-module': 1.0.0-beta.6
-      '@leafer/event': 1.0.0-beta.6
-      '@leafer/event-ui': 1.0.0-beta.6
-      '@leafer/file': 1.0.0-beta.6
-      '@leafer/helper': 1.0.0-beta.6
-      '@leafer/image': 1.0.0-beta.6
-      '@leafer/list': 1.0.0-beta.6
-      '@leafer/math': 1.0.0-beta.6
-      '@leafer/path': 1.0.0-beta.6
-      '@leafer/platform': 1.0.0-beta.6
-      '@leafer/plugin': 1.0.0-beta.6
-      '@leafer/task': 1.0.0-beta.6
+      '@leafer/canvas': 1.0.0-beta.7
+      '@leafer/data': 1.0.0-beta.7
+      '@leafer/debug': 1.0.0-beta.7
+      '@leafer/decorator': 1.0.0-beta.7
+      '@leafer/display': 1.0.0-beta.7
+      '@leafer/display-module': 1.0.0-beta.7
+      '@leafer/event': 1.0.0-beta.7
+      '@leafer/event-ui': 1.0.0-beta.7
+      '@leafer/file': 1.0.0-beta.7
+      '@leafer/helper': 1.0.0-beta.7
+      '@leafer/image': 1.0.0-beta.7
+      '@leafer/list': 1.0.0-beta.7
+      '@leafer/math': 1.0.0-beta.7
+      '@leafer/path': 1.0.0-beta.7
+      '@leafer/platform': 1.0.0-beta.7
+      '@leafer/plugin': 1.0.0-beta.7
+      '@leafer/task': 1.0.0-beta.7
     dev: false
 
-  /@leafer/data@1.0.0-beta.6:
-    resolution: {integrity: sha512-4PrLrXAfqHMAiSrqGCWS4L5QxHlrCHpcJZR/Zz2iUF9K/cNLdLh5APC8I7oqcvNASBSSMNsVLWghWzfmsIKSfw==}
+  /@leafer/data@1.0.0-beta.7:
+    resolution: {integrity: sha512-PxTqJhTMhEl8/lXWUtuFnIfsKl0JirgFAPMcHCyp8zRmh4tECevFkAJWB1J4uW8fRDeMCTx1iGNAfZsSgyMRrw==}
     dev: false
 
-  /@leafer/debug@1.0.0-beta.6:
-    resolution: {integrity: sha512-Cm/m+43XFeE6zLg8gdn6/oxI02zdeCY0s9XJ4o3PgQJC1cvQSCedTsPA8sbGC4fvz0484Z+wZAGm3cxpE6z9gw==}
+  /@leafer/debug@1.0.0-beta.7:
+    resolution: {integrity: sha512-w24oWsSJPXvDAOAPcaHXPAepCS5JLflMuoJ6zVaFEkYzaE6qhqUOTRrmngaGWzAoE+TfrGSvl78Vg//HgvukEQ==}
     dependencies:
-      '@leafer/math': 1.0.0-beta.6
+      '@leafer/math': 1.0.0-beta.7
     dev: false
 
-  /@leafer/decorator@1.0.0-beta.6:
-    resolution: {integrity: sha512-HoDgdWSAiqRp7JuatBNmOeqH4LHl86i5wLF3mdJW8K7i+FXqo5SfTYHj0wZLtlkKSLdIdDGd4/3OJWxFs1+vBA==}
+  /@leafer/decorator@1.0.0-beta.7:
+    resolution: {integrity: sha512-edZ/yDaZh6mBO5hrHOq6ZApj0NSPUNgZ3IoNeb8RCAemdwGFjSnfxYyBW7imLRQZseRqBR8EsWfNmV9/KwExGA==}
     dependencies:
-      '@leafer/debug': 1.0.0-beta.6
-      '@leafer/platform': 1.0.0-beta.6
+      '@leafer/debug': 1.0.0-beta.7
+      '@leafer/platform': 1.0.0-beta.7
     dev: false
 
-  /@leafer/display-module@1.0.0-beta.6:
-    resolution: {integrity: sha512-X4NPPVbPnE4tPey3ujBI5o2EzMMAsSwY5FSu8A0tr4MyZyWKC/mCnFEFHAf986ZPkCchWbbDkMv2jtwyzxv29A==}
+  /@leafer/display-module@1.0.0-beta.7:
+    resolution: {integrity: sha512-enK8kppn/uakWNgDYWtbjlEzZp6flILlbIzjpw3r6B4DznNI13kfcSe8eL49vLTTYkE1KcmGvW9VTPQVbE0MxQ==}
     dependencies:
-      '@leafer/event': 1.0.0-beta.6
-      '@leafer/math': 1.0.0-beta.6
+      '@leafer/event': 1.0.0-beta.7
+      '@leafer/math': 1.0.0-beta.7
     dev: false
 
-  /@leafer/display@1.0.0-beta.6:
-    resolution: {integrity: sha512-N883eBJhXdWvgluGzZ13T+qb4wrENHWbExae8N901i4dr0CDctSC5xnpbxBQaKMH4hkJoKAGsfQTJcOJhlLVDQ==}
+  /@leafer/display@1.0.0-beta.7:
+    resolution: {integrity: sha512-lJb7z7aXCUmELbBwVgpuWphwm/6GfqdDNaVOHn7oGEVjemPrqk9NJY/FTie+V/Z07V5SsJAkprxMZtz8nWG8rQ==}
     dependencies:
-      '@leafer/data': 1.0.0-beta.6
-      '@leafer/decorator': 1.0.0-beta.6
-      '@leafer/display-module': 1.0.0-beta.6
-      '@leafer/event': 1.0.0-beta.6
-      '@leafer/helper': 1.0.0-beta.6
-      '@leafer/layout': 1.0.0-beta.6
-      '@leafer/math': 1.0.0-beta.6
+      '@leafer/data': 1.0.0-beta.7
+      '@leafer/decorator': 1.0.0-beta.7
+      '@leafer/display-module': 1.0.0-beta.7
+      '@leafer/event': 1.0.0-beta.7
+      '@leafer/helper': 1.0.0-beta.7
+      '@leafer/layout': 1.0.0-beta.7
+      '@leafer/math': 1.0.0-beta.7
     dev: false
 
-  /@leafer/event-ui@1.0.0-beta.6:
-    resolution: {integrity: sha512-cDch4D7a228K0GDZcHgVgR7YYWC+0iakU0aLNSFZMucnhhTgsLOzARUaOP1XZc3p47vLk6fZwtbXWPho26H7yA==}
+  /@leafer/event-ui@1.0.0-beta.7:
+    resolution: {integrity: sha512-tZmJuh63Yy3fn9U16IfGi5kZ8JY8G0gG9Az7EHQg6uhp0OkIj9I8NJR8Wi2ojp2BcQ7skYpoiR2eC8FPdT47Tg==}
     dependencies:
-      '@leafer/decorator': 1.0.0-beta.6
-      '@leafer/event': 1.0.0-beta.6
-      '@leafer/list': 1.0.0-beta.6
+      '@leafer/decorator': 1.0.0-beta.7
+      '@leafer/event': 1.0.0-beta.7
+      '@leafer/list': 1.0.0-beta.7
     dev: false
 
-  /@leafer/event@1.0.0-beta.6:
-    resolution: {integrity: sha512-dxNLjhV4yYAZFfZCSYV7HWriCNcON2S/c8ReHLFHIGubMed5o3PFQi+3inbZGeA3LG4byJk5FdGahsMmlm8hng==}
+  /@leafer/event@1.0.0-beta.7:
+    resolution: {integrity: sha512-H9VdUKdUh7Q24GPXNMNiivAElX27NWzA5D64r88YkcNS9La3vB1BOzGLtS7lez2u5guu1UlNWbOtY6MVW59Knw==}
     dependencies:
-      '@leafer/decorator': 1.0.0-beta.6
+      '@leafer/decorator': 1.0.0-beta.7
     dev: false
 
-  /@leafer/file@1.0.0-beta.6:
-    resolution: {integrity: sha512-kntLNzzkLBrimk90XZyVWXHo+uJvtKvqA3fEmwcaIKZQ7F55WqNFqWh5mcZlRU3ArL4Z5jPyTsscX1QdyTDUMA==}
+  /@leafer/file@1.0.0-beta.7:
+    resolution: {integrity: sha512-aDbHr5YkM3JRb7vr0Q92D7125fFYblgHRnibAljGvLvUZhjzxMQFUzxIxXflTZTXOsXOc/UbfyuM32QwZkfmcQ==}
     dependencies:
-      '@leafer/debug': 1.0.0-beta.6
+      '@leafer/debug': 1.0.0-beta.7
     dev: false
 
-  /@leafer/helper@1.0.0-beta.6:
-    resolution: {integrity: sha512-4CWcybpEElD8qA2e6y0VL2iADWCt4N6fyZFTLF9SmEVLJsfZXcnDtSn/AnAcJw1c0/QuTil2flj4Igl27RHjCQ==}
+  /@leafer/helper@1.0.0-beta.7:
+    resolution: {integrity: sha512-e761QupO0JUi1YW2Rmy6WX9AlyiWGhcq9NS5ZgWhWkvVkCY0Wozmj73/77U49FLxZpNvMcHmi3iS9MDEJBZFnQ==}
     dependencies:
-      '@leafer/math': 1.0.0-beta.6
+      '@leafer/math': 1.0.0-beta.7
     dev: false
 
-  /@leafer/image-web@1.0.0-beta.6:
-    resolution: {integrity: sha512-HeH/IYt0eixvGCLxTqZmej/6nVd6g6iC7kuCj1Vk9TjXikomjpFvvmEIFnAsJ1dCp8UOEUgdMqi3zivVcI46Iw==}
+  /@leafer/image-web@1.0.0-beta.7:
+    resolution: {integrity: sha512-BLMguhfTeSYky5t3/Xdax97X4BjkbghITYBxz+1yAhmAR0erU9BB6U2lDHA5vgJZ+KYR9jIfCdKcVyOw7uIuUw==}
     dev: false
 
-  /@leafer/image@1.0.0-beta.6:
-    resolution: {integrity: sha512-Ee80gQVbSNVwx6OBzzIRVo+Q7sdaEtlpcNOdVoJGxC6MWu17vtYYTDfCwF8r2BRAOoV0OwO4gZ6mSzhwihwc9w==}
+  /@leafer/image@1.0.0-beta.7:
+    resolution: {integrity: sha512-FMy34X9vrcyP/566BJo5Z35Znux8ozmHzOCO4UgVEjBl4DC9j3bAnQWOxwG0XN8yb+EWqhN6yKCeI8ljyY+myw==}
     dev: false
 
-  /@leafer/interaction-web@1.0.0-beta.6:
-    resolution: {integrity: sha512-SQEPRhLv7L00+u0ib3B7A8yhbbBvJ/H8t9ocM4yIYIQiiRPWLRwNxFZEzLRtOBaA7wwN/82FrthtBBdtt9hAow==}
+  /@leafer/interaction-web@1.0.0-beta.7:
+    resolution: {integrity: sha512-5Cw2B/QlWEyJ2dSXV8P3I2+/TcADTbPnKOH00d46jrdu7Q/0dULh7pMSGWlvzrG/InOwdXC8J4uPij8jdrg5lA==}
     dependencies:
-      '@leafer/event-ui': 1.0.0-beta.6
-      '@leafer/interaction': 1.0.0-beta.6
-      '@leafer/math': 1.0.0-beta.6
+      '@leafer/event-ui': 1.0.0-beta.7
+      '@leafer/interaction': 1.0.0-beta.7
+      '@leafer/math': 1.0.0-beta.7
     dev: false
 
-  /@leafer/interaction@1.0.0-beta.6:
-    resolution: {integrity: sha512-ZZTc44/XfST5Hy+gJnvsZqkhQb3guEHC1wabA068k6F7X/u+/PCK27VzGWkIi2x0uKur9H60KdNg0Ent/qrdKg==}
+  /@leafer/interaction@1.0.0-beta.7:
+    resolution: {integrity: sha512-QSRB/FCOA+ldBZ4j9RGNG90dfC2bOdYwsPJJhlQhCUyC7TuShjSaQBexBjb80RTKFFP5sdVwx4dTJM5E29VsyA==}
     dependencies:
-      '@leafer/data': 1.0.0-beta.6
-      '@leafer/event': 1.0.0-beta.6
-      '@leafer/event-ui': 1.0.0-beta.6
-      '@leafer/helper': 1.0.0-beta.6
-      '@leafer/list': 1.0.0-beta.6
-      '@leafer/math': 1.0.0-beta.6
-      '@leafer/platform': 1.0.0-beta.6
+      '@leafer/data': 1.0.0-beta.7
+      '@leafer/event': 1.0.0-beta.7
+      '@leafer/event-ui': 1.0.0-beta.7
+      '@leafer/helper': 1.0.0-beta.7
+      '@leafer/list': 1.0.0-beta.7
+      '@leafer/math': 1.0.0-beta.7
+      '@leafer/platform': 1.0.0-beta.7
     dev: false
 
-  /@leafer/interface@1.0.0-beta.6:
-    resolution: {integrity: sha512-JbT8/Jumh0NE/tqjP62E0YH0GkGt9oRsj5raumU6Fx8Gi5tA/9lHHSaAH7LE2hGbhXN9oGM2y3z2Cp5eocmrGQ==}
+  /@leafer/interface@1.0.0-beta.7:
+    resolution: {integrity: sha512-VkrHV2TkL5yEv/zBOqyDJbb0AzZCzuXGVaI1tBD7dD3J/JcU86lx6/yXvWIREgArthjsNxflgdUweLW6f6LwCQ==}
     dev: false
 
-  /@leafer/layout@1.0.0-beta.6:
-    resolution: {integrity: sha512-8raBYvMiO6SROqE7DyXuB/w0i6hnNDmwH5e5sRLmu8H5Q0/Bj42zDFx1XX8mkRb3PFHOpu+fjftCldgbRHTe1Q==}
+  /@leafer/layout@1.0.0-beta.7:
+    resolution: {integrity: sha512-MBv5CLnVi/7vuK6+g6BqjpLY/DghA4y4qQg99OhV0o1Iu1ek5Njfu0xZ31QkHzqofCXqcIHiOtcyp/vtzRs2Ag==}
     dependencies:
-      '@leafer/math': 1.0.0-beta.6
-      '@leafer/platform': 1.0.0-beta.6
+      '@leafer/math': 1.0.0-beta.7
+      '@leafer/platform': 1.0.0-beta.7
     dev: false
 
-  /@leafer/layouter@1.0.0-beta.6:
-    resolution: {integrity: sha512-slDhqaTKLF+p2JJXgMGmOe+tqpxEyLc6e7tVoRolYW8KwHb1fU0dK7a/nwBWZQlJhNyZ4/DJIQ9GLFrFqaxeMA==}
+  /@leafer/layouter@1.0.0-beta.7:
+    resolution: {integrity: sha512-oU5fGpk9trfFsKcGaXR4u7AbKhqTIJnmgmMjlGgens/CBTGQY3N0u+63HHEFOTpAruvdYl/alM56srlGvWhMuw==}
     dependencies:
-      '@leafer/data': 1.0.0-beta.6
-      '@leafer/debug': 1.0.0-beta.6
-      '@leafer/event': 1.0.0-beta.6
-      '@leafer/helper': 1.0.0-beta.6
-      '@leafer/list': 1.0.0-beta.6
-      '@leafer/math': 1.0.0-beta.6
+      '@leafer/data': 1.0.0-beta.7
+      '@leafer/debug': 1.0.0-beta.7
+      '@leafer/event': 1.0.0-beta.7
+      '@leafer/helper': 1.0.0-beta.7
+      '@leafer/list': 1.0.0-beta.7
+      '@leafer/math': 1.0.0-beta.7
     dev: false
 
-  /@leafer/list@1.0.0-beta.6:
-    resolution: {integrity: sha512-PJZ7PG4cshSvs8uOt0zEwd3uN/EItmuEKDOB89dxHZDGOXblOMUY1QsHqVd2LUkb3J0oJMwhlqruOKs+oh0pVw==}
+  /@leafer/list@1.0.0-beta.7:
+    resolution: {integrity: sha512-jk1tsSDF7yWJQtKeh1c9LJVwi7Ii3bom5/woI9aoJl9IcYCA/Q6GG8MZhVX1HhZY7+9iekDW1mAOrdFpfTz9zw==}
     dev: false
 
-  /@leafer/math@1.0.0-beta.6:
-    resolution: {integrity: sha512-Xa7bWFAd9WsxbXxv1riHw02L4je3HnQ17NYBJfAE75uDG4yAtearJpzN0TzNjWufV9bB2Fl54zWTXNaw8vzgbg==}
+  /@leafer/math@1.0.0-beta.7:
+    resolution: {integrity: sha512-EOE0QWMOAJwx67ebPVLsOnurFncX/Dyi7xTXLSwe6EC+gDTr6pleIX1+H61T0wAgl8C/Huka2ysxxtHsIxtIPQ==}
     dev: false
 
-  /@leafer/partner@1.0.0-beta.6:
-    resolution: {integrity: sha512-M+wdZ83B8lnQBwhJYVTivYaDAH4heHwtaj9PbrnKLdXfNBPhCOd3ga5mkPtyVB2+zPEyizoPAUixjumZ9/k6Kw==}
+  /@leafer/partner@1.0.0-beta.7:
+    resolution: {integrity: sha512-rGsz9922JwWLs37Pvj0Ihf+o/Ajif/6kKsP1d/1XBF1wv2ckZEo1pJdPcTktOmhMprRTtMzoanAMO8fb7k4uMg==}
     dependencies:
-      '@leafer/layouter': 1.0.0-beta.6
-      '@leafer/platform': 1.0.0-beta.6
-      '@leafer/renderer': 1.0.0-beta.6
-      '@leafer/selector': 1.0.0-beta.6
-      '@leafer/watcher': 1.0.0-beta.6
+      '@leafer/layouter': 1.0.0-beta.7
+      '@leafer/platform': 1.0.0-beta.7
+      '@leafer/renderer': 1.0.0-beta.7
+      '@leafer/selector': 1.0.0-beta.7
+      '@leafer/watcher': 1.0.0-beta.7
     dev: false
 
-  /@leafer/path@1.0.0-beta.6:
-    resolution: {integrity: sha512-E8BuUH9CDSLTppJV0p/yYkolyXT7RU4Q0Iu1tL3kIlY8ROt9DXIDmmCD4Z/K4D8Riu3LSzZ0/v4PiuODCOuNXA==}
+  /@leafer/path@1.0.0-beta.7:
+    resolution: {integrity: sha512-/3ySiEQrYbFvKgy10PLvCmtNh7TlYf/wpDQt3gIBJnK+sqTRritxZFzoQI4teukTIw8vhnXw8C5oC6uHEgQ1JA==}
     dependencies:
-      '@leafer/debug': 1.0.0-beta.6
-      '@leafer/math': 1.0.0-beta.6
+      '@leafer/debug': 1.0.0-beta.7
+      '@leafer/math': 1.0.0-beta.7
     dev: false
 
-  /@leafer/platform@1.0.0-beta.6:
-    resolution: {integrity: sha512-C/5/mCgRwjMntE2uf3NxsRyluSXYGcXymUAaEjQjGteNRqB7LGSeVYAkWqZnfK3V0J3c4jGQPx9Ee4fMM/6UuA==}
+  /@leafer/platform@1.0.0-beta.7:
+    resolution: {integrity: sha512-0enWujy0RITZVeyfAqSI0mr7EZ/E/7h2AKkifWTywps1V7FP1qXAuvrCIF4AbXw0nnWuqaR5a+FIl0xoudzHrQ==}
     dependencies:
-      '@leafer/debug': 1.0.0-beta.6
-      '@leafer/layouter': 1.0.0-beta.6
+      '@leafer/debug': 1.0.0-beta.7
+      '@leafer/layouter': 1.0.0-beta.7
     dev: false
 
-  /@leafer/plugin@1.0.0-beta.6:
-    resolution: {integrity: sha512-Wwb92wMVWHTxtphDF7n0WEOf5m/XSQ0WxQuw3IP6A9mOJLpOjIdF8u7hu3Y2dlITfeWyNyRZ4NA11Z4F2qmniA==}
+  /@leafer/plugin@1.0.0-beta.7:
+    resolution: {integrity: sha512-h7kGokCwIxCWd4Dn4wTrQEQceOIu5WcqpwCw5xWfsTghD9loCXlIIOIc985vHoxU2L9fxwj78NIkQQEMpDQUMA==}
     dependencies:
-      '@leafer/debug': 1.0.0-beta.6
+      '@leafer/debug': 1.0.0-beta.7
     dev: false
 
-  /@leafer/renderer@1.0.0-beta.6:
-    resolution: {integrity: sha512-N6g/+y7EkP/4Hg3cqzDcTpmMt4dzExNEIn79BWehn5WiJw28BiJ84DBuAzKGkhLAQeHgMN3/5TwgVx0F3OeBLg==}
+  /@leafer/renderer@1.0.0-beta.7:
+    resolution: {integrity: sha512-30Sw3C97pFLOhheO9DZ2ztjzlUzma82r7Fia8NhYXqRHmkHqznptmLhb1vtn8y74/t4Cv0m0RwN7ZFAFIWAehg==}
     dependencies:
-      '@leafer/data': 1.0.0-beta.6
-      '@leafer/debug': 1.0.0-beta.6
-      '@leafer/event': 1.0.0-beta.6
-      '@leafer/math': 1.0.0-beta.6
-      '@leafer/platform': 1.0.0-beta.6
+      '@leafer/data': 1.0.0-beta.7
+      '@leafer/debug': 1.0.0-beta.7
+      '@leafer/event': 1.0.0-beta.7
+      '@leafer/math': 1.0.0-beta.7
+      '@leafer/platform': 1.0.0-beta.7
     dev: false
 
-  /@leafer/selector@1.0.0-beta.6:
-    resolution: {integrity: sha512-5/VunNQV4aZT7s3+U8PtntC4VGK3OGKgHaCMJ1vyT7MWtx0RRWC7EU083eSlssnSR97Kiop6B+AIRugYf91r9Q==}
+  /@leafer/selector@1.0.0-beta.7:
+    resolution: {integrity: sha512-OJgW3474Ue6uyid12a/O8A1S9YyWIdImg7hhGyGoE+Mw0Pan/C/ARIsKPrSPT3G/Paail1iNVUBltPH/QkNDIA==}
     dependencies:
-      '@leafer/event': 1.0.0-beta.6
-      '@leafer/list': 1.0.0-beta.6
-      '@leafer/math': 1.0.0-beta.6
+      '@leafer/event': 1.0.0-beta.7
+      '@leafer/list': 1.0.0-beta.7
+      '@leafer/math': 1.0.0-beta.7
     dev: false
 
-  /@leafer/task@1.0.0-beta.6:
-    resolution: {integrity: sha512-bMZMQ3y3bsCEkr0Q5RfOJhonWzkYGo+gOjSgDNFTHsIWrrr21oPRt8luRgIKggIYna4/niI1VEdPvu87oIt7YQ==}
+  /@leafer/task@1.0.0-beta.7:
+    resolution: {integrity: sha512-8FlUsYw1s/Ce0Lz2E3snFJcpSQWOov2a9SLnjQS6J103a9wZG9cPNyHM98bfF4iu9DmmDE+SzQBp5FC0axVAng==}
     dependencies:
-      '@leafer/debug': 1.0.0-beta.6
-      '@leafer/math': 1.0.0-beta.6
+      '@leafer/debug': 1.0.0-beta.7
+      '@leafer/math': 1.0.0-beta.7
     dev: false
 
-  /@leafer/watcher@1.0.0-beta.6:
-    resolution: {integrity: sha512-x6iqgyPqng3P287xAOC/0TNA/KDjQ1QXEs9J0+aDHp/iGijeLPttcwmVn9a2xQz0KsBchU+QOTmuyVYuqatD4A==}
+  /@leafer/watcher@1.0.0-beta.7:
+    resolution: {integrity: sha512-EPZCX8uCes3bxF+csxRKCbfbt+M3IxghRz07yjhNvoRwPrjOTwlT6mrLBtGj6FDe3o0ul6RnFd2OFqtwuvz1Pw==}
     dependencies:
-      '@leafer/data': 1.0.0-beta.6
-      '@leafer/event': 1.0.0-beta.6
-      '@leafer/list': 1.0.0-beta.6
+      '@leafer/data': 1.0.0-beta.7
+      '@leafer/event': 1.0.0-beta.7
+      '@leafer/list': 1.0.0-beta.7
     dev: false
 
-  /@leafer/web@1.0.0-beta.6:
-    resolution: {integrity: sha512-VrcJRZFl7jnFOcl3unyRWb8H1yaL/HDq+fFO19750Ur8cdC1QA4eGe7cIqLWJwrIRGkhgGG5tgvQ6AHxXMc8yg==}
+  /@leafer/web@1.0.0-beta.7:
+    resolution: {integrity: sha512-jZYRIqxhxr3nyJ/u9kCF5sKbakjbPJQMjViykVXfoQuw7gChtrgd3Am86C0siYExKP0e4nv7SQrm2jF56KJHTA==}
     dependencies:
-      '@leafer/canvas-web': 1.0.0-beta.6
-      '@leafer/core': 1.0.0-beta.6
-      '@leafer/image-web': 1.0.0-beta.6
-      '@leafer/interaction-web': 1.0.0-beta.6
-      '@leafer/partner': 1.0.0-beta.6
+      '@leafer/canvas-web': 1.0.0-beta.7
+      '@leafer/core': 1.0.0-beta.7
+      '@leafer/image-web': 1.0.0-beta.7
+      '@leafer/interaction-web': 1.0.0-beta.7
+      '@leafer/partner': 1.0.0-beta.7
     dev: false
 
   /@next/env@13.4.1:
@@ -2505,12 +2505,12 @@ packages:
       language-subtag-registry: 0.3.22
     dev: false
 
-  /leafer-ui@1.0.0-beta.6:
-    resolution: {integrity: sha512-692b2OIq/1A0c5Dx8aruJ9gokybRc61928ZMcpTCGLB5v5+A1q4H0eVoSXo1XQ/VuyCgo6I6aUUfBxFJJcfaBA==}
+  /leafer-ui@1.0.0-beta.7:
+    resolution: {integrity: sha512-BgErE5dFwQuJO27AP2TDlD3w2P7s4p8IyVs4/M3A4MqX9QcBCG4Z4zUj0w5paFmJzBoP4NwWdrmD2NKuRGhIEQ==}
     dependencies:
-      '@leafer-ui/interface': 1.0.0-beta.6
-      '@leafer-ui/web': 1.0.0-beta.6
-      '@leafer/interface': 1.0.0-beta.6
+      '@leafer-ui/interface': 1.0.0-beta.7
+      '@leafer-ui/web': 1.0.0-beta.7
+      '@leafer/interface': 1.0.0-beta.7
     dev: false
 
   /levn@0.4.1:
