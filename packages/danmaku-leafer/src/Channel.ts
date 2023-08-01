@@ -41,8 +41,7 @@ export class Channel {
    */
   public getPosition(order: "order" | "reverse") {
     const height = this._host.channelHeight;
-    const view = this._host.instance;
-    const capacity = Math.floor(view.height / height);
+    const capacity = Math.floor(this._host.getBounds().height / height);
     let y = 0;
     if (order === "order") {
       y = (this.index % capacity) * height;

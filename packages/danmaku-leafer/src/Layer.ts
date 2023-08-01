@@ -8,21 +8,42 @@ export type BulletLayers = {
   [key in Mode]: Layer
 }
 
-interface ConstructorProps {
+interface ConstructorProps extends Partial<Layer> {
   name: string;
-  instance?: Leafer;
+  instance: Leafer;
   channelHeight?: number;
   host: Danmaku;
   bulletGap?: number;
 }
 
 export class Layer {
-  name: string;
-  instance: Leafer;
-  channels: Channel[];
-  channelHeight: number;
-  host: Danmaku;
-  bulletGap: number;
+  private _name: string;
+
+  public get name(): string {
+    return this._name;
+  }
+
+  private _instance: Leafer;
+
+  private _channelHeight: number;
+
+  public get channelHeight(): number {
+    return this._channelHeight;
+  }
+
+  private _bulletGap: number;
+
+  public get bulletGap(): number {
+    return this._bulletGap;
+  }
+
+  private _channels: Channel[];
+
+  public get channels(): readonly Channel[] {
+    return this._channels;
+  }
+
+  private _host: Danmaku;
 
   constructor({
     name,
@@ -31,23 +52,28 @@ export class Layer {
     host,
     bulletGap = 200
   }: ConstructorProps) {
-    this.name = name;
-    this.instance = instance || new Leafer();
-    this.channelHeight = channelHeight;
-    this.channels = [];
-    this.host = host;
-    this.bulletGap = bulletGap;
+    this._name = name;
+    this._instance = instance;
+    this._channelHeight = channelHeight;
+    this._bulletGap = bulletGap;
+    this._channels = [];
+    this._host = host;
+  }
+
+  public getBounds() {
+    return { width: this._instance.width, height: this._instance.height };
   }
 
   /**
-   * Place the bullet in appropriate position.
+   * Place the bullet in appropriate position,
+   * and place it to stage.
    * In x axis, place it out of screen.
-   * In y axis, place it in a spare channel
+   * In y axis, place it in a spare channel.
    *
    * @param bullet
    */
-  placeBullet(bullet: Bullet) {
-    const view = this.instance;
+  public placeBullet(bullet: Bullet): void {
+    const view = this._instance;
     let order: "order" | "reverse" = "order";
 
     // Calculate x axis position
@@ -69,12 +95,8 @@ export class Layer {
       } else {
         const lastBullet = channel.bullets.slice(-1)[0];
         if (bullet.mode === Mode.Normal) {
-          const distance = ((this.host.currentTime - lastBullet.ctime) / 1000) * 60 * lastBullet.speed;
+          const distance = ((this._host.currentTime - lastBullet.ctime) / 1000) * 60 * lastBullet.speed;
           if (distance > this.bulletGap) {
-            // TODO: provide speed bound calculate formula
-            /* const screenWidth = this.host.app.getBounds("content").width;
-            const speedBound = channel.lastBullet.speed / (1 - (this.host.currentTime - channel.lastBullet.ctime) * channel.lastBullet.speed / screenWidth);
-            console.log(distance); */
             return true;
           }
         }
@@ -87,9 +109,19 @@ export class Layer {
       bullet.setPosition({ y: target.getPosition(order) });
     } else {
       const newChannel = new Channel({ index: this.channels.length, host: this });
-      this.channels.push(newChannel);
+      this._channels.push(newChannel);
       newChannel.pushBullet(bullet);
       bullet.setPosition({ y: newChannel.getPosition(order) });
     }
+
+    this._instance.add(bullet.instance);
+  }
+
+  /**
+   * Remove bullet from stage
+   * @param bullet
+   */
+  public removeBullet(bullet: Bullet): void {
+    this._instance.remove(bullet.instance);
   }
 }

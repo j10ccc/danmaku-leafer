@@ -42,6 +42,10 @@ export class Bullet {
   /** Leafer Text instance */
   private _instance: Text;
 
+  public get instance(): Text {
+    return this._instance;
+  }
+
   private _ctime: number;
 
   /** Time bullet creates in time line */
@@ -131,10 +135,7 @@ export class Bullet {
    */
   public fire(layers: BulletLayers): void {
     const layer = layers[this._mode];
-    const view = layer.instance;
-
     layer.placeBullet(this);
-    view.add(this._instance);
   }
 
   /**
@@ -166,7 +167,6 @@ export class Bullet {
    */
   public exit(layers: BulletLayers): void {
     this.channel?.shiftBullet();
-    const view = layers[this._mode].instance;
-    view.remove(this._instance);
+    layers[this._mode].removeBullet(this);
   }
 }
