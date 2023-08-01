@@ -9,7 +9,7 @@ export enum Mode {
   Bottom,
 }
 
-interface ConstructorProps extends Partial<Bullet> {
+export interface ConstructorProps extends Partial<Bullet> {
   text: string;
   ctime: number;
   residenceTime?: number;
@@ -165,8 +165,7 @@ export class Bullet {
    * Exit from the view it exits
    * @param layers
    */
-  public exit(layers: BulletLayers): void {
+  public exit(): void {
     this.channel?.shiftBullet();
-    layers[this._mode].removeBullet(this);
   }
 }

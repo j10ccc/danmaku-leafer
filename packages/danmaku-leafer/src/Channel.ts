@@ -58,6 +58,8 @@ export class Channel {
   }
 
   public shiftBullet() {
-    this._bullets.shift();
+    const target = this._bullets.shift();
+    if (target) this._host.removeBullet(target);
   }
+
 }
