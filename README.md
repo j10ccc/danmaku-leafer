@@ -1,4 +1,4 @@
-# danmaku-leafer
+# danmaku-leafer [![npm version](https://img.shields.io/npm/v/danmaku-leafer.svg?style=flat)](https://www.npmjs.com/package/danmaku-leafer)
 
 High performance canvas danmaku for dense data scenario.
 
