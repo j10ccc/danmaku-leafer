@@ -1,11 +1,8 @@
-import { Group } from "leafer-ui";
 import { Bullet } from "./Bullet";
 import type { Layer } from "./Layer";
 
-interface ConstructorProps {
+interface ConstructorProps extends Partial<Channel> {
   index: number;
-
-  /** Host layer */
   host: Layer;
 };
 
@@ -13,31 +10,40 @@ interface ConstructorProps {
  * Channel is a virtual tool to help address bullet in y axis.
  */
 export class Channel {
-  index: number;
-  bullets: Bullet[];
-  // lastBullet?: Bullet;
-  host: Layer;
+  private _index: number;
 
-  constructor({
+  /** Index is used to address the channel in layer */
+  public get index(): number {
+    return this._index;
+  }
+
+  private _bullets: Bullet[];
+
+  /** Bullets existing in the channel */
+  public get bullets(): readonly Bullet[] {
+    return this._bullets;
+  }
+
+  /** Host layer */
+  private _host: Layer;
+
+  public constructor({
     index,
     host
   }: ConstructorProps) {
-    this.index = index;
-    this.host = host;
-    this.bullets = [];
+    this._index = index;
+    this._host = host;
+    this._bullets = [];
   }
 
   /**
    * Get channel position in y axis
    */
-  getPosition(order: "order" | "reverse") {
-
-    const height = this.host.channelHeight;
-    const view = this.host.instance;
+  public getPosition(order: "order" | "reverse") {
+    const height = this._host.channelHeight;
+    const view = this._host.instance;
     const capacity = Math.floor(view.height / height);
-
     let y = 0;
-
     if (order === "order") {
       y = (this.index % capacity) * height;
     } else {
@@ -47,12 +53,12 @@ export class Channel {
     return y;
   }
 
-  pushBullet(bullet: Bullet) {
-    this.bullets.push(bullet);
+  public pushBullet(bullet: Bullet) {
+    this._bullets.push(bullet);
     bullet.channel = this;
   }
 
-  shiftBullet() {
-    this.bullets.shift();
+  public shiftBullet() {
+    this._bullets.shift();
   }
 }
