@@ -1,35 +1,68 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Bullet, Danmaku } from "danmaku-leafer";
-import { Mode } from "danmaku-leafer";
+import { useEffect, useRef, useState, useCallback } from "react";
+import type {
+  Danmaku as Danmaku,
+  Bullet as Bullet,
+  Mode as Mode
+} from "danmaku-leafer";
+
+interface DynamicModule {
+  Danmaku: typeof Danmaku | null;
+  Bullet: typeof Bullet | null;
+  Mode: typeof Mode | null
+}
 
 const DemoPage = () => {
   const danmakuApp = useRef<Danmaku>();
   const [playing, setPlaying] = useState(false);
 
+  const dynamicModule = useRef<DynamicModule>({ Danmaku: null, Bullet: null, Mode: null });
+
   const debugApp = useRef<Danmaku["app"]>();
 
-  useEffect(() => {
-    danmakuApp.current = new Danmaku("container");
+  const loadDynamicModule = async () => {
+    dynamicModule.current = await import("danmaku-leafer");
+    console.log(dynamicModule.current);
+  };
+
+  const createApp = async () => {
+    await loadDynamicModule();
+    danmakuApp.current = new dynamicModule.current.Danmaku("container");
     debugApp.current = danmakuApp.current.app;
+  };
+
+  useEffect(() => {
+    createApp();
   }, []);
 
-  const handleInsertNormal = () => {
+  const handleInsertNormal = useCallback(async () => {
     danmakuApp.current.insertBullets(
-      new Bullet({ text: "hello", ctime: danmakuApp.current.currentTime + 500, mode: Mode.Normal })
+      new dynamicModule.current.Bullet({
+        text: "hello",
+        ctime: danmakuApp.current.currentTime + 500,
+        mode: dynamicModule.current.Mode.Normal
+      })
+    );
+  }, []);
+
+  const handleInsertTop = async () => {
+    danmakuApp.current.insertBullets(
+      new dynamicModule.current.Bullet({
+        text: "top",
+        ctime: danmakuApp.current.currentTime + 500,
+        mode: dynamicModule.current.Mode.Top
+      })
     );
   };
 
-  const handleInsertTop = () => {
+  const handleInsertBottom = async () => {
     danmakuApp.current.insertBullets(
-      new Bullet({ text: "top", ctime: danmakuApp.current.currentTime + 500, mode: Mode.Top })
-    );
-  };
-
-  const handleInsertBottom = () => {
-    danmakuApp.current.insertBullets(
-      new Bullet({ text: "bottom", ctime: danmakuApp.current.currentTime + 500, mode: Mode.Bottom })
+      new dynamicModule.current.Bullet({
+        text: "bottom",
+        ctime: danmakuApp.current.currentTime + 500,
+        mode: dynamicModule.current.Mode.Bottom
+      })
     );
   };
 

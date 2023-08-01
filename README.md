@@ -8,9 +8,8 @@ High performance canvas danmaku for dense data scenario.
 - [x] bullet animation(normal, pinned)
 - [x] multi bullet placement
 - [ ] class properties visibility completion
+- [ ] floating speed of bullets
 - [ ] timeline leap and bullet refresh
 - [ ] bullet style completion(initial_rotate...)
-- [ ] floating speed of bullets
-- [ ] normal bullet auto layout
-- [ ] app support full screen
 - [ ] bullet custom render
+- [ ] app support full screen
