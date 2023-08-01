@@ -9,89 +9,151 @@ export enum Mode {
   Bottom,
 }
 
-interface ConstructorProps extends Partial<Bullet> {};
+interface ConstructorProps extends Partial<Bullet> {
+  text: string;
+  ctime: number;
+  residenceTime?: number;
+  mode?: Mode;
+  fontSize?: number;
+  fontFamily?: string;
+};
 
 export class Bullet {
-  _id: string;
+  private _id: string;
 
-  text: string;
-  color: string;
-  opacity: number;
-  mode: Mode;
-  ctime: number;
-  fontSize: number;
-  rotate: number;
-  speed: number;
-  channel: Channel | null;
-  _pinnedResidenceTime: number;
+  public get id(): string {
+    return this._id;
+  }
 
-  instance: Text;
+  private _residenceTime: number;
 
-  constructor({
-    text = "",
-    color = "rgb(0, 0, 0)",
-    opacity = 0,
+  /** Time(ms) bullet residents in layer, only apply for Top/Bottom Mode */
+  public get residenceTime(): number {
+    return this._residenceTime;
+  }
+
+  private _mode: Mode;
+
+  /** Bullet position preset */
+  public get mode(): Mode {
+    return this._mode;
+  }
+
+  /** Leafer Text instance */
+  private _instance: Text;
+
+  private _ctime: number;
+
+  /** Time bullet creates in time line */
+  public get ctime(): number {
+    return this._ctime;
+  }
+
+  private _fontSize: number;
+
+  public get fontSize(): number {
+    return this._fontSize;
+  }
+
+  private _fontFamily: string;
+
+  public get fontFamily(): string {
+    return this._fontFamily;
+  }
+
+  private _text: string;
+
+  public get text(): string {
+    return this._text;
+  }
+
+  public color: string;
+
+  public opacity: number;
+
+  /** The distance bullet moves in one frame */
+  public speed: number;
+
+  public channel: Channel | null;
+
+  public constructor({
     mode = Mode.Normal,
-    ctime = 0,
+    residenceTime = 3000,
+    text,
+    color = "rgb(0, 0, 0)",
+    opacity = .8,
+    ctime,
     fontSize = 16,
-    rotate = 0,
+    fontFamily = "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
     speed = 2,
-    _pinnedResidenceTime = 3000
   }: ConstructorProps) {
     this._id = nanoid();
-
-    this.text = text;
-    this.color = color;
-    this.opacity = opacity;
-    this.mode = mode;
-    this.ctime = ctime;
-    this.fontSize = fontSize;
-    this.rotate = rotate;
-    this.speed = speed;
-    this._pinnedResidenceTime = _pinnedResidenceTime;
-    this.channel = null;
-
-    this.instance = new Text({
+    this._mode = mode;
+    this._residenceTime = residenceTime;
+    this._fontSize = fontSize;
+    this._fontFamily = fontFamily;
+    this._ctime = ctime;
+    this._text = text;
+    this._instance = new Text({
       fill: color,
-      text
+      text,
+      opacity,
+      fontSize,
+      fontFamily
     });
 
+    this.color = color;
+    this.opacity = opacity;
+    this.speed = speed;
+    this.channel = null;
+  }
+
+  public set(props: Partial<Bullet>): void {
+    this._instance.set({
+      fill: props.color ?? this.color,
+      opacity: props.opacity ?? this.opacity
+    });
+  }
+
+  public setPosition(props: { x?: number, y?: number }): void {
+    this._instance.set(props);
+  }
+
+  public getBounds() {
+    return this._instance.getBounds("content");
   }
 
   /**
-   * Fire the bullet
+   * Place the bullet and add bullet to appropriate
+   * layer, layer depends on mode
    *
-   * Place the bullet and add bullet to app
-   *
-   * @param view leafer app
+   * @param layers layers
    */
-  fire(layers: BulletLayers) {
-    const layer = layers[this.mode];
+  public fire(layers: BulletLayers): void {
+    const layer = layers[this._mode];
     const view = layer.instance;
 
     layer.placeBullet(this);
-
-    view.add(this.instance);
-    console.log("display bullet: ", this.text);
+    view.add(this._instance);
   }
 
   /**
    * Bullet animate action
    *
-   * @params currentTime
+   * @param currentTime
    *
    * @returns should animate end
    */
-  animate(currentTime: number): boolean {
-    if (this.mode === Mode.Normal) {
-      this.instance.move(-1 * this.speed, 0);
-      const textWidth = this.instance.getBounds("content", "inner").width;
-      if (this.instance.x + textWidth < 0) {
+  public animate(currentTime: number): boolean {
+    if (this._mode === Mode.Normal) {
+      this._instance.move(-1 * this.speed, 0);
+      const textWidth = this._instance.getBounds("content", "inner").width;
+      if (this._instance.x + textWidth < 0) {
         return true;
       } else return false;
-    } else if (this.mode === Mode.Bottom || this.mode === Mode.Top) {
+    } else if (this._mode === Mode.Bottom || this._mode === Mode.Top) {
       // Pinned bullet should't move, it display few seconds and exit
-      if (currentTime - this.ctime < this._pinnedResidenceTime) return false;
+      if (currentTime - this.ctime < this._residenceTime) return false;
       else return true;
     } else {
       return false;
@@ -102,9 +164,9 @@ export class Bullet {
    * Exit from the view it exits
    * @param layers
    */
-  exit(layers: BulletLayers) {
+  public exit(layers: BulletLayers): void {
     this.channel?.shiftBullet();
-    const view = layers[this.mode].instance;
-    view.remove(this.instance);
+    const view = layers[this._mode].instance;
+    view.remove(this._instance);
   }
 }

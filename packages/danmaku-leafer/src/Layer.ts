@@ -4,8 +4,6 @@ import type { Bullet } from "./Bullet";
 import { Mode } from "./Bullet";
 import type { Danmaku } from "./Danmaku";
 
-// export type BulletLayerName = "moving" | "steady";
-
 export type BulletLayers = {
   [key in Mode]: Layer
 }
@@ -54,14 +52,13 @@ export class Layer {
 
     // Calculate x axis position
     if (bullet.mode === Mode.Normal) {
-      bullet.instance.x = view.width;
-      console.log(view.width);
+      bullet.setPosition({ x: view.width });
       order = "order";
     } else if (bullet.mode === Mode.Top) {
-      bullet.instance.x = (view.width - bullet.instance.getBounds("content").width) / 2;
+      bullet.setPosition({ x: (view.width - bullet.getBounds().width) / 2 });
       order = "order";
     } else if (bullet.mode === Mode.Bottom) {
-      bullet.instance.x = (view.width - bullet.instance.getBounds("content").width) / 2;
+      bullet.setPosition({ x: (view.width - bullet.getBounds().width) / 2 });
       order = "reverse";
     }
 
@@ -87,12 +84,12 @@ export class Layer {
 
     if (target) {
       target.pushBullet(bullet);
-      bullet.instance.y = target.getPosition(order);
+      bullet.setPosition({ y: target.getPosition(order) });
     } else {
       const newChannel = new Channel({ index: this.channels.length, host: this });
       this.channels.push(newChannel);
       newChannel.pushBullet(bullet);
-      bullet.instance.y = newChannel.getPosition(order);
+      bullet.setPosition({ y: newChannel.getPosition(order) });
     }
   }
 }

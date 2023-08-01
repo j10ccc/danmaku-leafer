@@ -45,7 +45,6 @@ export class Danmaku {
           this.flyingQueue.delete(item);
           this.finishedQueue.push(item);
           item.exit(this.bulletLayers);
-          console.log(`bullet: ${item.text} finished`);
         }
       });
     });
@@ -89,13 +88,12 @@ export class Danmaku {
     if (bullet.ctime > this.currentTime) {
       this.waitingQueue.push(bullet);
     } else {
-      console.warn("Insert a expired bullet");
       this.finishedQueue.push(bullet);
     }
   }
 
   removeBullet(id: string) {
-    this.finishedQueue = this.finishedQueue.filter(bullet => bullet._id !== id);
+    this.finishedQueue = this.finishedQueue.filter(bullet => bullet.id !== id);
   }
 
   clearBullet() {
