@@ -8,7 +8,7 @@ export class Danmaku {
   waitingQueue: Array<Bullet>;
   flyingQueue: Set<Bullet>;
   finishedQueue: Array<Bullet>;
-  timer = 0;
+  timer: number;
   event: IEventListenerId | null;
 
   bulletLayers: BulletLayers;
@@ -23,6 +23,7 @@ export class Danmaku {
     this.finishedQueue = [];
     this._fireInterval = 500;
     this.event = null;
+    this.timer = 0;
 
     this.bulletLayers = {
       1: new Layer({ name: "Normal", host: this, instance: this.app.addLeafer()}),
@@ -58,6 +59,7 @@ export class Danmaku {
 
   pause() {
     clearInterval(this.timer);
+    if (this.event) this.app.off_(this.event);
   }
 
   /**
