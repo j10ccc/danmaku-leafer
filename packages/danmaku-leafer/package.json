@@ -1,6 +1,9 @@
 {
   "name": "danmaku-leafer",
-  "version": "0.0.1",
+  "description": "High performance canvas danmaku for dense data scenario.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "j10ccc",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
@@ -8,6 +11,9 @@
     "build": "rollup -c",
     "dev": "rollup -c -w"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "dependencies": {
     "leafer-ui": "1.0.0-beta.7",
     "nanoid": "^4.0.2"
