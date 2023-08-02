@@ -112,9 +112,8 @@ export class Danmaku {
   public insertBullets(props: Omit<BulletConstructorProps, "ctime">): void {
     this._waitingQueue.push(
       new Bullet({
-        text: props.text,
-        mode: props.mode,
         ctime: this._currentTime + this._fireInterval,
+        ...props
       })
     );
   }
