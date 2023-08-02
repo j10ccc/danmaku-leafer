@@ -18,8 +18,13 @@
     "@types/node": "^17.0.12",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
+    "@unocss/preset-icons": "^0.54.1",
+    "@unocss/preset-uno": "^0.54.1",
+    "@unocss/webpack": "^0.54.1",
+    "@iconify-json/mdi": "^1.1.53",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "unocss": "^0.54.1"
   }
 }
