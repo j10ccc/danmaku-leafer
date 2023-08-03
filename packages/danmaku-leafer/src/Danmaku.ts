@@ -100,8 +100,10 @@ export class Danmaku {
    *
    * @param bullets
    */
-  public preloadBullets(bullets: Bullet[]): void {
-    this._waitingQueue = bullets.sort((a, b) => a.ctime - b.ctime);
+  public preloadBullets(props: Array<BulletConstructorProps>): void {
+    this._waitingQueue = props
+      .sort((a, b) => a.ctime - b.ctime)
+      .map(item => new Bullet(item));
   }
 
   /**
@@ -109,13 +111,13 @@ export class Danmaku {
    * display after a `_fireInterval` time
    * @param props Base properties of a bullet
    */
-  public insertBullets(props: Omit<BulletConstructorProps, "ctime">): void {
-    this._waitingQueue.push(
-      new Bullet({
-        ctime: this._currentTime + this._fireInterval,
-        ...props
-      })
-    );
+  public insertBullets(props: Omit<BulletConstructorProps, "ctime">): Bullet {
+    const newValue = new Bullet({
+      ctime: this._currentTime + this._fireInterval,
+      ...props
+    });
+    this._waitingQueue.push(newValue);
+    return newValue;
   }
 
   /**
