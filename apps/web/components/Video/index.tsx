@@ -8,13 +8,15 @@ const Video = () => {
   const { mount: mountDanmaku } = useDanmakuApp();
 
   useEffect(() => {
-    mountDanmaku(danmakuContainerName);
+    mountDanmaku(danmakuContainerName).then(res => {
+      res.start();
+    });
   }, []);
 
   return (
     <div className="w-full bg-black">
-      <div style={{ border: "2px solid black" }}>
-        <div id={danmakuContainerName} />
+      <div className="h-full">
+        <div id={danmakuContainerName} className="h-full" />
       </div>
     </div>
   );

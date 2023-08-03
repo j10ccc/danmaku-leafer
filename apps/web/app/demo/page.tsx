@@ -10,8 +10,8 @@ const DemoPage = () => {
         <div className="flex flex-auto">
           <Video />
         </div>
-        <div className="flex-none flex flex-col w-72 pt-4">
-          <div className="flex-auto">
+        <div className="flex-none flex flex-col w-72">
+          <div className="flex-auto of-y-auto">
             <DanmakuList />
           </div>
           <div className="flex-none">
