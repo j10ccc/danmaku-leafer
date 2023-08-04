@@ -112,7 +112,7 @@ export class Danmaku {
    * display after a `_fireInterval` time
    * @param props Base properties of a bullet
    */
-  public insertBullets(props: Omit<BulletConstructorProps, "ctime">): Bullet {
+  public insertBullet(props: Omit<BulletConstructorProps, "ctime">): Bullet {
     const newValue = new Bullet({
       ctime: this._currentTime + this._fireInterval,
       ...props

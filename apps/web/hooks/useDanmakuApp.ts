@@ -37,7 +37,7 @@ const useDanmakuApp = create<DanmakuAppState>(
       const app = get().app;
       if (!app) return;
       const { text, mode, color } = value;
-      const { ctime, id } = app.insertBullets({ text, mode, color, residenceTime: 5000 });
+      const { ctime, id } = app.insertBullet({ text, mode, color, residenceTime: 5000 });
       set(state => ( {
         list: state.list.concat([{ ...value, ctime, id }])
       }));
