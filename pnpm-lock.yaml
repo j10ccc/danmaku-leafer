@@ -82,7 +82,7 @@ importers:
   examples/html:
     devDependencies:
       danmaku-leafer:
-        specifier: workspace:^
+        specifier: latest
         version: link:../../packages/danmaku-leafer
       vite:
         specifier: ^4.4.5
