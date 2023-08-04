@@ -3,6 +3,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "license": "license-generator install mit -y 2023 -n j10ccc -p danmaku-leafer && mv LICENSE packages/danmaku-leafer",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
@@ -10,6 +11,7 @@
     "@turbo/gen": "^1.9.7",
     "eslint": "^8.45.0",
     "eslint-config-custom": "workspace:*",
+    "license-generator": "^0.0.13",
     "prettier": "^2.5.1",
     "turbo": "^1.9.7"
   },

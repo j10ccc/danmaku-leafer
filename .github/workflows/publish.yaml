@@ -28,6 +28,9 @@ jobs:
       - name: Build
         run: pnpm build --filter danmaku-leafer
 
+      - name: Generate license
+        run: pnpm license
+
       - name: Publish danmaku-leafer
         run: cd ./packages/danmaku-leafer && npm publish
         env:
