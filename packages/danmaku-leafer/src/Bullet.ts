@@ -2,12 +2,7 @@ import { Text } from "leafer-ui";
 import { nanoid } from "nanoid";
 import { Channel } from "./Channel";
 import type { BulletLayers } from "./Layer";
-
-export enum Mode {
-  Normal = 1,
-  Top,
-  Bottom,
-}
+import { Mode } from "./Mode";
 
 export interface ConstructorProps extends Partial<Bullet> {
   text: string;

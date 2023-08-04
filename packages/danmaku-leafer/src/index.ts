@@ -1,2 +1,2 @@
-export * from "./Bullet";
 export * from "./Danmaku";
+export * from "./Mode";

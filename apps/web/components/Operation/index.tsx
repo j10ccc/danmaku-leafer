@@ -1,32 +1,18 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import type { Mode } from "danmaku-leafer";
+import { useRef } from "react";
 import useDanmakuApp from "../../hooks/useDanmakuApp";
 
-interface DynamicModule {
-  Mode: typeof Mode | null
-}
-
 const Operation = () => {
-  const dynamicModule = useRef<DynamicModule>({ Mode: null });
   const { insert } = useDanmakuApp();
   const formRef = useRef<HTMLFormElement>();
-
-  const loadDynamicModule = async () => {
-    dynamicModule.current = await import("danmaku-leafer");
-  };
-
-  useEffect(() => {
-    loadDynamicModule();
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { content, mode } = e.target;
     insert({
       text: content.value.trim(),
-      mode: parseInt(mode.value),
+      mode: mode.value,
       color: "white",
       sender: "User"
     });
@@ -41,9 +27,9 @@ const Operation = () => {
         onSubmit={handleSubmit}>
         <div className="flex gap-2 mb-2">
           <select name="mode" className="text-gray-700 text-3 font-500 border border-blue-500 rounded-sm py-1 px-2">
-            <option value={dynamicModule.current.Mode?.Normal}>Normal</option>
-            <option value={dynamicModule.current.Mode?.Top}>Top</option>
-            <option value={dynamicModule.current.Mode?.Bottom}>Bottom</option>
+            <option value={"normal"}>Normal</option>
+            <option value={"top"}>Top</option>
+            1<option value={"bottom"}>Bottom</option>
           </select>
         </div>
         <div className="h-16 mb-2">

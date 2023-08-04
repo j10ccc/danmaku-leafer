@@ -2,6 +2,7 @@ import { AnimateEvent, IEventListenerId, App } from "leafer-ui";
 import { Bullet } from "./Bullet";
 import type { ConstructorProps as BulletConstructorProps } from "./Bullet";
 import { Layer, BulletLayers } from "./Layer";
+import { Mode } from "./Mode";
 
 export class Danmaku {
   private _app: App;
@@ -26,7 +27,7 @@ export class Danmaku {
   private _flyingQueue: Set<Bullet>;
   private _finishedQueue: Array<Bullet>;
 
-  _fireInterval: number;
+  private _fireInterval: number;
 
   public constructor(view: string) {
     this._app = new App({ view, type: "user" });
@@ -40,9 +41,9 @@ export class Danmaku {
     this._finishedQueue = [];
 
     this._bulletLayers = {
-      1: new Layer({ name: "Normal", host: this, instance: this._app.addLeafer()}),
-      2: new Layer({ name: "Top", host: this, instance: this._app.addLeafer()}),
-      3: new Layer({ name: "Bottom", host: this, instance: this._app.addLeafer()}),
+      [Mode.Normal]: new Layer({ name: Mode.Normal, host: this, instance: this._app.addLeafer()}),
+      [Mode.Top]: new Layer({ name: Mode.Top, host: this, instance: this._app.addLeafer()}),
+      [Mode.Bottom]: new Layer({ name: Mode.Bottom, host: this, instance: this._app.addLeafer()}),
     };
   }
 

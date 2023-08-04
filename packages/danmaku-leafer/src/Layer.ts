@@ -1,7 +1,7 @@
 import { Leafer } from "leafer-ui";
 import { Channel } from "./Channel";
 import type { Bullet } from "./Bullet";
-import { Mode } from "./Bullet";
+import { Mode } from "./Mode";
 import type { Danmaku } from "./Danmaku";
 
 export type BulletLayers = {
