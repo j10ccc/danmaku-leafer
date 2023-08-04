@@ -76,6 +76,15 @@ importers:
         specifier: ^0.54.1
         version: 0.54.1(@unocss/webpack@0.54.1)(postcss@8.4.27)(vite@4.4.8)
 
+  examples/html:
+    devDependencies:
+      danmaku-leafer:
+        specifier: workspace:^
+        version: link:../../packages/danmaku-leafer
+      vite:
+        specifier: ^4.4.5
+        version: 4.4.8(@types/node@17.0.45)
+
   packages/danmaku-leafer:
     dependencies:
       leafer-ui:
