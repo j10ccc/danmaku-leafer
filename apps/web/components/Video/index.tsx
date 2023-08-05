@@ -5,12 +5,16 @@ import useDanmakuApp from "../../hooks/useDanmakuApp";
 
 const Video = () => {
   const danmakuContainerName = "d-container";
-  const { mount: mountDanmaku } = useDanmakuApp();
+  const { mount: mountDanmaku, destroy } = useDanmakuApp();
 
   useEffect(() => {
     mountDanmaku(danmakuContainerName).then(res => {
       res.start();
     });
+
+    return () => {
+      destroy();
+    };
   }, []);
 
   return (

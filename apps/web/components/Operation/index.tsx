@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import useDanmakuApp from "../../hooks/useDanmakuApp";
+import BiliDanmuLoader from "../BiliDanmuLoader";
 
 const Operation = () => {
   const { insert } = useDanmakuApp();
@@ -21,6 +22,7 @@ const Operation = () => {
 
   return (
     <div className="h-full pb-4 px-4 pt-2 b-t">
+      <BiliDanmuLoader />
       <form
         ref={formRef}
         className="flex flex-col"
@@ -29,7 +31,7 @@ const Operation = () => {
           <select name="mode" className="text-gray-700 text-3 font-500 border border-blue-500 rounded-sm py-1 px-2">
             <option value={"normal"}>Normal</option>
             <option value={"top"}>Top</option>
-            1<option value={"bottom"}>Bottom</option>
+            <option value={"bottom"}>Bottom</option>
           </select>
         </div>
         <div className="h-16 mb-2">

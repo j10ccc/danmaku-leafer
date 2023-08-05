@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import type { Danmaku, Mode } from "danmaku-leafer";
 
-interface Danmu {
+export interface Danmu {
   id: string;
   text: string;
   mode: Mode;
@@ -14,8 +14,9 @@ interface DanmakuAppState {
   app: Danmaku | null;
   mount: (id: string) => Promise<Danmaku>;
   list: Danmu[];
-  preload: (value: Danmu[]) => void;
+  preload: (value: Omit<Danmu, "id">[]) => void;
   insert: (value: Omit<Danmu, "ctime" | "id">) => void;
+  destroy: () => void;
 }
 
 const useDanmakuApp = create<DanmakuAppState>(
@@ -23,7 +24,7 @@ const useDanmakuApp = create<DanmakuAppState>(
     app: null,
     mount: async (id) => {
       const { Danmaku } = await import("danmaku-leafer");
-      const app = new Danmaku(id);
+      const app = new Danmaku({ view: id, fireInterval: 200 });
       set({ app });
       return app;
     },
@@ -31,7 +32,13 @@ const useDanmakuApp = create<DanmakuAppState>(
     preload: (value) => {
       const app = get().app;
       if (!app) return;
-      app.preloadBullets(value);
+      const newBullets = app.preloadBullets(value);
+      set({
+        list: newBullets.map(item => {
+          const { id, text, mode, color, ctime } = item;
+          return { id, text, mode, color, ctime, sender: "Other" };
+        })
+      });
     },
     insert: (value) => {
       const app = get().app;
@@ -41,8 +48,12 @@ const useDanmakuApp = create<DanmakuAppState>(
       set(state => ( {
         list: state.list.concat([{ ...value, ctime, id }])
       }));
+    },
+    destroy: () => {
+      const app = get().app;
+      if (!app) return;
+      app.destroy();
     }
-
   })
 );
 
