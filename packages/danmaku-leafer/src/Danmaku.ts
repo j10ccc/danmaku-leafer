@@ -4,6 +4,11 @@ import type { ConstructorProps as BulletConstructorProps } from "./Bullet";
 import { Layer, BulletLayers } from "./Layer";
 import { Mode } from "./Mode";
 
+interface ConstructorProps {
+  view: string;
+  fireInterval?: number;
+}
+
 export class Danmaku {
   private _app: App;
   private _currentTime: number;
@@ -15,6 +20,12 @@ export class Danmaku {
 
   public set currentTime(value: number) {
     this._currentTime = value;
+  }
+
+  private _state: "started" | "pause" | "stop";
+
+  public get state() {
+    return this._state;
   }
 
   private _timer: number;
@@ -29,10 +40,14 @@ export class Danmaku {
 
   private _fireInterval: number;
 
-  public constructor(view: string) {
+  public constructor({
+    view,
+    fireInterval = 500
+  }: ConstructorProps) {
     this._app = new App({ view, type: "user" });
     this._currentTime = 0;
-    this._fireInterval = 500;
+    this._state = "stop";
+    this._fireInterval = fireInterval;
     this._frameListener = null;
     this._timer = 0;
 
@@ -73,11 +88,38 @@ export class Danmaku {
       this.fire();
       this._currentTime += this._fireInterval;
     }, this._fireInterval);
+
+    this._state = "started";
   }
 
   public pause(): void {
     clearInterval(this._timer);
     if (this._frameListener) this._app.off_(this._frameListener);
+    this._state = "pause";
+  }
+
+  /**
+   * Reset all state of Danmaku, and clear all
+   * bullets in screen, finally stop the app in initial time
+   */
+  public reset(): void {
+    clearInterval(this._timer);
+    if (this._frameListener) this._app.off_(this._frameListener);
+    this._currentTime = 0;
+    this.clearScreen();
+    this._finishedQueue.forEach(bullet => bullet.destroy());
+
+    this._state = "stop";
+  }
+
+  public destroy(): void {
+    clearInterval(this._timer);
+    if (this._frameListener) this._app.off_(this._frameListener);
+    this._currentTime = 0;
+
+    // this._flyingQueue.forEach(bullet => bullet.exit());
+
+    this._app.destroy();
   }
 
   /**
@@ -96,15 +138,19 @@ export class Danmaku {
   }
 
   /**
-   * Load danmaku data before start, It will
-   * sort all data by `ctime`
+   * Load danmaku data before start, it will reset app,
+   * all data passed will be sorted by `ctime`
    *
-   * @param bullets
+   * @param props Bullets to be loaded
    */
-  public preloadBullets(props: Array<BulletConstructorProps>): void {
-    this._waitingQueue = props
+  public preloadBullets(props: Array<BulletConstructorProps>): Bullet[] {
+    if (this._state === "started") this.reset();
+    const newValue = props
       .sort((a, b) => a.ctime - b.ctime)
       .map(item => new Bullet(item));
+
+    this._waitingQueue = newValue;
+    return newValue;
   }
 
   /**
@@ -131,9 +177,18 @@ export class Danmaku {
     bullet.exit();
   }
 
-  public clearBullet(): void {
-    this._finishedQueue.splice(0);
-    this._waitingQueue.splice(0);
+  /**
+   * Clear all bullets in screen at current time,
+   * and move them from flying queue to finished
+   * queue
+   */
+  public clearScreen(): void {
+    this._flyingQueue.forEach(bullet => {
+      bullet.exit();
+    });
+    this._finishedQueue = this._finishedQueue.concat(
+      [...this._flyingQueue].sort((a, b) => a.ctime - b.ctime)
+    );
+    this._flyingQueue.clear();
   }
-
 }

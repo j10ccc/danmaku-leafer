@@ -60,6 +60,10 @@ export class Layer {
     this._host = host;
   }
 
+  public destroy() {
+    this._instance.destroy();
+  }
+
   public getBounds() {
     return { width: this._instance.width, height: this._instance.height };
   }

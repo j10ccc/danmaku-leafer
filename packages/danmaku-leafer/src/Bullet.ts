@@ -133,6 +133,10 @@ export class Bullet {
     layer.placeBullet(this);
   }
 
+  public destroy(): void {
+    this._instance.destroy();
+  }
+
   /**
    * Bullet animate action
    *
