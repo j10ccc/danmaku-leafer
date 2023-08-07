@@ -163,7 +163,12 @@ export class Danmaku {
       ctime: this._currentTime + this._fireInterval,
       ...props
     });
-    this._waitingQueue.push(newValue);
+    const clipIndex = this._waitingQueue.findIndex(bullet => newValue.ctime <= bullet.ctime);
+    if (clipIndex !== -1) {
+      this._waitingQueue.splice(clipIndex, 0, newValue);
+    } else {
+      this._waitingQueue.push(newValue);
+    }
     return newValue;
   }
 
