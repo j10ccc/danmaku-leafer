@@ -1,6 +1,6 @@
-import Video from "../../components/Video";
-import Operation from "../../components/Operation";
 import DanmakuList from "../../components/DanmakuList";
+import Operation from "../../components/Operation";
+import Video from "../../components/Video";
 
 const DemoPage = () => {
 
