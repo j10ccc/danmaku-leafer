@@ -25,7 +25,7 @@
     "nanoid": "^4.0.2"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "^11.1.2",
+    "@rollup/plugin-typescript": "^11.1.6",
     "eslint-config-custom": "workspace:*",
     "rollup": "^3.26.3",
     "tsconfig": "workspace:*",
