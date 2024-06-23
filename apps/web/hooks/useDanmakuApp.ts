@@ -1,5 +1,5 @@
-import { create } from "zustand";
 import type { Danmaku, Mode } from "danmaku-leafer";
+import { create } from "zustand";
 
 export interface Danmu {
   id: string;
@@ -45,7 +45,7 @@ const useDanmakuApp = create<DanmakuAppState>(
       if (!app) return;
       const { text, mode, color } = value;
       const { ctime, id } = app.insertBullet({ text, mode, color, residenceTime: 5000 });
-      set(state => ( {
+      set(state => ({
         list: state.list.concat([{ ...value, ctime, id }])
       }));
     },

@@ -1,8 +1,9 @@
-import { AnimateEvent, IEventListenerId, App } from "leafer-ui";
+import { AnimateEvent, App } from "leafer-ui";
 import { Bullet } from "./Bullet";
 import type { ConstructorProps as BulletConstructorProps } from "./Bullet";
 import { Layer, BulletLayers } from "./Layer";
 import { Mode } from "./Mode";
+import { IEventListenerId } from "@leafer/interface";
 
 interface ConstructorProps {
   view: string;
@@ -44,7 +45,7 @@ export class Danmaku {
     view,
     fireInterval = 500
   }: ConstructorProps) {
-    this._app = new App({ view, type: "user" });
+    this._app = new App({ view, type: "app" });
     this._currentTime = 0;
     this._state = "stop";
     this._fireInterval = fireInterval;
@@ -56,9 +57,9 @@ export class Danmaku {
     this._finishedQueue = [];
 
     this._bulletLayers = {
-      [Mode.Normal]: new Layer({ name: Mode.Normal, host: this, instance: this._app.addLeafer()}),
-      [Mode.Top]: new Layer({ name: Mode.Top, host: this, instance: this._app.addLeafer()}),
-      [Mode.Bottom]: new Layer({ name: Mode.Bottom, host: this, instance: this._app.addLeafer()}),
+      [Mode.Normal]: new Layer({ name: Mode.Normal, host: this, instance: this._app.addLeafer() }),
+      [Mode.Top]: new Layer({ name: Mode.Top, host: this, instance: this._app.addLeafer() }),
+      [Mode.Bottom]: new Layer({ name: Mode.Bottom, host: this, instance: this._app.addLeafer() }),
     };
   }
 

@@ -8,6 +8,6 @@
   },
   "devDependencies": {
     "danmaku-leafer": "latest",
-    "vite": "^4.4.12"
+    "vite": "^4.5.3"
   }
 }

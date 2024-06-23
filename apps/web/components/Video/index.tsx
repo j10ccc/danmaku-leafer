@@ -15,7 +15,7 @@ const Video = () => {
     return () => {
       destroy();
     };
-  }, []);
+  }, [destroy, mountDanmaku]);
 
   return (
     <div className="w-full bg-black">
