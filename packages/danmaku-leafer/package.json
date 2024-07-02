@@ -21,11 +21,11 @@
     "danmaku"
   ],
   "dependencies": {
-    "leafer-ui": "1.0.0-rc.28",
+    "leafer-ui": "^1.0.0",
     "nanoid": "^4.0.2"
   },
   "devDependencies": {
-    "@leafer/interface": "1.0.0-rc.28",
+    "@leafer/interface": "^1.0.0",
     "@rollup/plugin-typescript": "^11.1.6",
     "eslint-config-custom": "workspace:*",
     "rollup": "^3.29.4",
